@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dg36fnthsm7cw"]
 
-[ext_resource type="Shader" uid="uid://cp8k8ipy0uyx1" path="res://materials/crosshair.gdshader" id="1_7yu3h"]
+[ext_resource type="Shader" uid="uid://cp8k8ipy0uyx1" path="res://shaders/crosshair.gdshader" id="1_7yu3h"]
 
 [resource]
 shader = ExtResource("1_7yu3h")

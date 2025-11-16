@@ -6,3 +6,6 @@
 [node name="info_player_start" type="Node3D"]
 script = ExtResource("1_5q65i")
 player_scene = ExtResource("2_26bgq")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

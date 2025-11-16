@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cljfn38utesju"]
 
-[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://materials/prop_interactable.gdshader" id="1_i1gt6"]
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://shaders/prop_interactable_screen.gdshader" id="1_i1gt6"]
 [ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="2_fbw02"]
 [ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="3_ohgff"]
 

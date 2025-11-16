@@ -10,15 +10,14 @@ const SCREEN_RESOURCE_FOLDER: String = "res://resources/screen/"
 
 @warning_ignore_start("unused_signal")
 
+# sadly, i cannot merge all of these into one.
+# These actions are outputs that can be used in hammer io logic. Can be called from the screen UI
 signal OnAction1()
 signal OnAction2()
 signal OnAction3()
 signal OnAction4()
 
-signal _OnPushAction1()
-signal _OnPushAction2()
-signal _OnPushAction3()
-signal _OnPushAction4()
+signal CallAction(string: String) # must be "string" or else the generated fdg will have an incorrect type
 
 @warning_ignore_restore("unused_signal")
 
@@ -34,16 +33,16 @@ var resource_path: String = "default":
 
 func _entity_setup(_e: VMFEntity) -> void:
 	var resource = get_resource(resource_path)
-	var instance = resource.scene.instantiate()
+	var instance_ui = resource.scene.instantiate()
 	
 	if resource.is_portrait:
 		screen_root.set_portrait()
 		# I was thinking of doing this on runtime but it wouldn't show up correctly in editor
-		instance.rotation_degrees = -90
-		instance.position = Vector2(0, 548)
+		instance_ui.rotation_degrees = -90
+		instance_ui.position = Vector2(0, 548)
 		
-	viewport.add_child(instance)
-	instance.set_owner(get_owner())
+	viewport.add_child(instance_ui)
+	instance_ui.set_owner(get_owner())
 
 func get_resource(resource_name: String) -> InteractableScreenResource:
 	var path = SCREEN_RESOURCE_FOLDER + "%s.tres" % [resource_name]
@@ -52,16 +51,6 @@ func get_resource(resource_name: String) -> InteractableScreenResource:
 		return resource
 	print("Interactable screen resource wasn't found, using default one")
 	return default_resource
-	
-func PushAction1(_param = null):
-	_OnPushAction1.emit()
 
-func PushAction2(_param = null):
-	_OnPushAction2.emit()
-	
-func PushAction3(_param = null):
-	_OnPushAction3.emit()
-	
-func PushAction4(_param = null):
-	_OnPushAction4.emit()
-	
+func _on_call_action(action_name: String) -> void:
+	print("prop interactable screen '%s' is getting this action %s called" % [name, action_name])

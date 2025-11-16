@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm1dulolr5m7h" path="res://entities/prop_interactable_screen.gd" id="1_us1dh"]
 [ext_resource type="Script" uid="uid://ckk5xtrfdmwjg" path="res://scripts/screen.gd" id="2_kr6o4"]
 [ext_resource type="PackedScene" uid="uid://ci2qbrgn7eft5" path="res://models/props/screen.mdl" id="2_us1dh"]
-[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://materials/prop_interactable.gdshader" id="4_lmc77"]
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://shaders/prop_interactable_screen.gdshader" id="4_lmc77"]
 [ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="5_8e8v6"]
 [ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="6_7ceso"]
 
@@ -76,4 +76,4 @@ gi_mode = 0
 mesh = SubResource("QuadMesh_j76xd")
 skeleton = NodePath("../..")
 
-[connection signal="action_made" from="Root" to="Root" method="_on_action_made"]
+[connection signal="CallAction" from="." to="." method="_on_call_action"]

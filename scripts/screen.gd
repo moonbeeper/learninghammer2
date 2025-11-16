@@ -1,18 +1,10 @@
-#@tool
+@tool
 extends Node3D
 class_name InteractableScreen
 
 signal mouse_moved(pos: Vector2)
+signal called_action(action_name: String)
 
-@warning_ignore_start("unused_signal")
-
-signal action_made(id: int)
-signal _OnPushAction1()
-signal _OnPushAction2()
-signal _OnPushAction3()
-signal _OnPushAction4()
-
-@warning_ignore_restore("unused_signal")
 @export var viewport: SubViewport
 @export var screen_mesh: MeshInstance3D
 @export var area: Area3D
@@ -28,10 +20,7 @@ var is_mouse_over: bool = false
 @onready var parent: prop_interactable_screen = get_parent()
 
 func _ready() -> void:
-	parent._OnPushAction1.connect(func(): _OnPushAction1.emit())
-	parent._OnPushAction2.connect(func(): _OnPushAction2.emit())
-	parent._OnPushAction3.connect(func(): _OnPushAction3.emit())
-	parent._OnPushAction4.connect(func(): _OnPushAction4.emit())
+	parent.CallAction.connect(func(e): called_action.emit(e))
 	
 	var screen_mat = screen_material.duplicate()
 	screen_mesh.set_surface_override_material(0, screen_mat)
@@ -79,8 +68,11 @@ func on_screen_clicked(world_hit_pos: Vector3):
 	release_event.global_position = pos2d
 	viewport.push_input(release_event)
 	
+## Trigger an action to be sent to the map IO
 func trigger_action(id: int) -> void:
-	match id:
+	var clamped_id = clampi(id, 1, 4)
+	
+	match clamped_id:
 		1:
 			parent.trigger_output("OnAction1");
 		2:
@@ -89,3 +81,6 @@ func trigger_action(id: int) -> void:
 			parent.trigger_output("OnAction3");
 		4:
 			parent.trigger_output("OnAction4");
+
+# can't do this, the signal has to be handled by the UI
+#func _on_call_action(action_name) -> void: pass
