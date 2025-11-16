@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://c6trrttlh1tv1"
+path="res://.godot/imported/screen_Screen_Albedo.vtf-7c427c90ed45684ca3b1c15792f6b5ca.vtf.res"
+
+[deps]
+
+source_file="res://materials/models/screen/screen_Screen_Albedo.vtf"
+dest_files=["res://.godot/imported/screen_Screen_Albedo.vtf-7c427c90ed45684ca3b1c15792f6b5ca.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://bf8fx4ym1x5hc"
+path="res://.godot/imported/env_sky.vtf-7c1d38fa8b178f11b0a02020e9a5a85e.vtf.res"
+
+[deps]
+
+source_file="res://materials/editor/env_sky.vtf"
+dest_files=["res://.godot/imported/env_sky.vtf-7c1d38fa8b178f11b0a02020e9a5a85e.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

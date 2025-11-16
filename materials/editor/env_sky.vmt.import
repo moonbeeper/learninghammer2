@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://bgjyfny6lxpse"
+path="res://.godot/imported/env_sky.vmt-300e850d7b66793ce3b9e630d0855070.vmt.res"
+
+[deps]
+
+source_file="res://materials/editor/env_sky.vmt"
+dest_files=["res://.godot/imported/env_sky.vmt-300e850d7b66793ce3b9e630d0855070.vmt.res"]
+
+[params]
+

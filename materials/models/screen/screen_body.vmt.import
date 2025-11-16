@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://ncnv2hwyteg4"
+path="res://.godot/imported/screen_body.vmt-005a9ae179e6807ed396095cc06773d1.vmt.res"
+
+[deps]
+
+source_file="res://materials/models/screen/screen_body.vmt"
+dest_files=["res://.godot/imported/screen_body.vmt-005a9ae179e6807ed396095cc06773d1.vmt.res"]
+
+[params]
+

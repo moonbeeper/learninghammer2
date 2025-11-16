@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://2qcjryjrf4hh"
+path="res://.godot/imported/notglowingthingy.vmt-3b361533c4bfc81fb5d3c71b6995aaf9.vmt.res"
+
+[deps]
+
+source_file="res://materials/notglowingthingy.vmt"
+dest_files=["res://.godot/imported/notglowingthingy.vmt-3b361533c4bfc81fb5d3c71b6995aaf9.vmt.res"]
+
+[params]
+

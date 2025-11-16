@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://coyo8wnf2xdtb"
+path="res://.godot/imported/white.vtf-b3572d620c89494b11d6fd98ac81f45b.vtf.res"
+
+[deps]
+
+source_file="res://materials/white.vtf"
+dest_files=["res://.godot/imported/white.vtf-b3572d620c89494b11d6fd98ac81f45b.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cljfn38utesju"]
+
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://materials/prop_interactable.gdshader" id="1_i1gt6"]
+[ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="2_fbw02"]
+[ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="3_ohgff"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_i1gt6")
+shader_parameter/uv_min = Vector2(0.52, 0.48)
+shader_parameter/uv_max = Vector2(0.738, 0.016)
+shader_parameter/roughness = 0.0
+shader_parameter/texture_metallic = ExtResource("2_fbw02")
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 1, 0)
+shader_parameter/texture_roughness = ExtResource("2_fbw02")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.36999999172976
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.11999997496576
+shader_parameter/texture_normal = ExtResource("3_ohgff")
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_ambient_occlusion = ExtResource("2_fbw02")
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0

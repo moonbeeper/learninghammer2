@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InteractableScreenResource" load_steps=3 format=3 uid="uid://ch7jfl6jr3vg1"]
+
+[ext_resource type="PackedScene" uid="uid://by0xfctr5feg6" path="res://nodes/screens/empty_portrait.tscn" id="1_qwylv"]
+[ext_resource type="Script" uid="uid://b65tjk0xwhy7u" path="res://scripts/resources/interactable_screen.gd" id="2_l7k8i"]
+
+[resource]
+script = ExtResource("2_l7k8i")
+scene = ExtResource("1_qwylv")
+is_portrait = true
+metadata/_custom_type_script = "uid://b65tjk0xwhy7u"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://1d0kkl57xpst"
+path="res://.godot/imported/screen_Body_Albedo.vtf-9c11ae005167abf7ba8ad87d61958464.vtf.res"
+
+[deps]
+
+source_file="res://materials/models/screen/screen_Body_Albedo.vtf"
+dest_files=["res://.godot/imported/screen_Body_Albedo.vtf-9c11ae005167abf7ba8ad87d61958464.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlim7ssqk6jwg"]
+
+[ext_resource type="Script" uid="uid://dm1dulolr5m7h" path="res://entities/prop_interactable_screen.gd" id="1_us1dh"]
+[ext_resource type="Script" uid="uid://ckk5xtrfdmwjg" path="res://scripts/screen.gd" id="2_kr6o4"]
+[ext_resource type="PackedScene" uid="uid://ci2qbrgn7eft5" path="res://models/props/screen.mdl" id="2_us1dh"]
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://materials/prop_interactable.gdshader" id="4_lmc77"]
+[ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="5_8e8v6"]
+[ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="6_7ceso"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_02iq4"]
+viewport_path = NodePath("Root/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl2tv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_lmc77")
+shader_parameter/screen_tex = SubResource("ViewportTexture_02iq4")
+shader_parameter/uv_min = Vector2(0.52, 0.48)
+shader_parameter/uv_max = Vector2(0.738, 0.016)
+shader_parameter/roughness = 0.0
+shader_parameter/texture_metallic = ExtResource("5_8e8v6")
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 1, 0)
+shader_parameter/texture_roughness = ExtResource("5_8e8v6")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.36999999172976
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.11999997496576
+shader_parameter/texture_normal = ExtResource("6_7ceso")
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_ambient_occlusion = ExtResource("5_8e8v6")
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j76xd"]
+size = Vector3(0.6, 0.03781738, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j76xd"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_j76xd"]
+material = SubResource("StandardMaterial3D_j76xd")
+size = Vector2(0.545, 1.185)
+
+[node name="prop_interactable" type="Node3D" node_paths=PackedStringArray("viewport", "screen_root")]
+script = ExtResource("1_us1dh")
+viewport = NodePath("Root/SubViewport")
+screen_root = NodePath("Root")
+
+[node name="Root" type="Node3D" parent="." node_paths=PackedStringArray("viewport", "screen_mesh", "area", "screen_area_mesh")]
+script = ExtResource("2_kr6o4")
+viewport = NodePath("SubViewport")
+screen_mesh = NodePath("screen")
+area = NodePath("Area3D")
+screen_area_mesh = NodePath("screen_area")
+
+[node name="SubViewport" type="SubViewport" parent="Root"]
+msaa_2d = 1
+gui_embed_subwindows = true
+size = Vector2i(1152, 548)
+render_target_update_mode = 4
+
+[node name="screen" parent="Root" instance=ExtResource("2_us1dh")]
+surface_material_override/0 = SubResource("ShaderMaterial_hl2tv")
+
+[node name="Area3D" type="Area3D" parent="Root" groups=["ScreenInteraction"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0037475582, 0)
+shape = SubResource("BoxShape3D_j76xd")
+debug_color = Color(0.92941177, 0.16862746, 0.49803922, 0.8901961)
+
+[node name="screen_area" type="MeshInstance3D" parent="Root"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("QuadMesh_j76xd")
+skeleton = NodePath("../..")
+
+[connection signal="action_made" from="Root" to="Root" method="_on_action_made"]

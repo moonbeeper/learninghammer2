@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InteractableScreenResource" load_steps=3 format=3 uid="uid://ciyjoxf4m00yq"]
+
+[ext_resource type="PackedScene" uid="uid://brvkc5slp4sgv" path="res://nodes/screens/empty.tscn" id="1_05i7d"]
+[ext_resource type="Script" uid="uid://b65tjk0xwhy7u" path="res://scripts/resources/interactable_screen.gd" id="2_0vn50"]
+
+[resource]
+script = ExtResource("2_0vn50")
+metadata/_custom_type_script = "uid://b65tjk0xwhy7u"

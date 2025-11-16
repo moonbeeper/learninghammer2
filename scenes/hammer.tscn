@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh818xui81xv5"]
+
+[ext_resource type="Script" uid="uid://5e4cydewqvdo" path="res://addons/godotvmf/src/vmf_runtime_controller.gd" id="1_s5ltg"]
+
+[node name="Hammer" type="Node3D"]
+script = ExtResource("1_s5ltg")
+default_map_name = "test"
+maps_folder = "res://mapsrc"
+hammer_setup = "In hammer do following steps:
+	1. Open Tools -> Options -> Build programs tab. In the \"Game Executable\" specify path to the Godot Engine launcher.
+	2. Open Run Map window (F9).
+	3. Click \"Edit\" and add new configuration.
+	4. Select the created configuration in Configurations field
+	5. Click \"New\" and add into \"Command\" field this - $game_exe
+	6. Add into \"Parameters\" field this
+	 --path $gamedir scenes/hammer.tscn --vmf $file"
+metadata/_custom_type_script = "uid://5e4cydewqvdo"

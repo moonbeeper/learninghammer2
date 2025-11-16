@@ -1,0 +1,43 @@
+@PointClass base(Targetname, Origin) iconsprite("editor/env_sky.vmt") = env_sky : "Creates the default hardcoded world enviroment" [
+	spawnflags(Flags) = [
+
+	]
+
+	meow(choices) : "Meow" : "1" = [		"0" : "No"		"1" : "Yes"	]
+	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
+
+
+
+	input Toggle(void) : ""
+	input Enable(void) : ""
+	input Disable(void) : ""
+	input Kill(void) : ""
+]
+
+@PointClass base(Targetname, Origin, Angles) studio("models/props/screen.mdl") = prop_interactable_screen : "An entity that places an interactable screen on the world." [
+	spawnflags(Flags) = [
+
+	]
+
+	resource_path(string) : "Resource Path" : "default" : "The path to the screen resource without the extension. If not found, it will be using the default one"
+	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
+
+	output OnAction1(void) : ""
+	output OnAction2(void) : ""
+	output OnAction3(void) : ""
+	output OnAction4(void) : ""
+	output _OnPushAction1(void) : ""
+	output _OnPushAction2(void) : ""
+	output _OnPushAction3(void) : ""
+	output _OnPushAction4(void) : ""
+
+	input PushAction1(void) : ""
+	input PushAction2(void) : ""
+	input PushAction3(void) : ""
+	input PushAction4(void) : ""
+	input Toggle(void) : ""
+	input Enable(void) : ""
+	input Disable(void) : ""
+	input Kill(void) : ""
+]
+
