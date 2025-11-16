@@ -1,10 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3jyrry46a4pt"]
+[gd_scene load_steps=16 format=3 uid="uid://c3jyrry46a4pt"]
 
 [ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="1_j5jx5"]
 [ext_resource type="ArrayMesh" uid="uid://b0vfv04pxxwd" path="res://geometry/test_vmf_import.mesh" id="2_lpvoh"]
 [ext_resource type="Shape3D" uid="uid://c1cjicgitir8u" path="res://geometry/test_vmf_collision_surface_prop_concrete.res" id="3_at5dv"]
 [ext_resource type="PackedScene" uid="uid://ddj2hyqaftihr" path="res://entities/info_player_start.tscn" id="4_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://bdg014m5mhqjt" path="res://addons/godotvmf/entities/light.tscn" id="5_uacia"]
+[ext_resource type="PackedScene" uid="uid://dlim7ssqk6jwg" path="res://entities/prop_interactable_screen.tscn" id="6_ghpyy"]
+[ext_resource type="PackedScene" uid="uid://brvkc5slp4sgv" path="res://nodes/screens/empty.tscn" id="7_44saj"]
+[ext_resource type="Script" uid="uid://b33xqak3k4u45" path="res://scripts/screen/base_ui.gd" id="8_7mbro"]
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://shaders/prop_interactable_screen.gdshader" id="9_ff6ho"]
+[ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="10_7yos8"]
+[ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="11_5jxlq"]
+[ext_resource type="PackedScene" uid="uid://urtyo8pv8tfk" path="res://entities/trigger_once.tscn" id="12_xrtyr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ghpyy"]
+viewport_path = NodePath("VMFNode/Entities/props/sad_15/Root/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44saj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_ff6ho")
+shader_parameter/screen_tex = SubResource("ViewportTexture_ghpyy")
+shader_parameter/uv_min = Vector2(0.52, 0.48)
+shader_parameter/uv_max = Vector2(0.738, 0.016)
+shader_parameter/roughness = 0.0
+shader_parameter/texture_metallic = ExtResource("10_7yos8")
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 1, 0)
+shader_parameter/texture_roughness = ExtResource("10_7yos8")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.36999999172976
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.11999997496576
+shader_parameter/texture_normal = ExtResource("11_5jxlq")
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_ambient_occlusion = ExtResource("10_7yos8")
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mbro"]
+points = PackedVector3Array(-1.2799997, -0.64, -1.28, -1.2799997, 0.64, -1.28, 1.2800002, -0.64, -1.28, -1.2799997, -0.64, 1.28, -1.2799997, 0.64, 1.28, 1.2800002, 0.64, -1.28, 1.2800002, -0.64, 1.28, 1.2800002, 0.64, 1.28)
 
 [node name="Test" type="Node3D"]
 
@@ -74,5 +108,262 @@ light_bake_mode = 1
 omni_range = 72.5583
 omni_attenuation = 1.44
 
+[node name="props" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="sad_15" parent="VMFNode/Entities/props" groups=["sad"] instance=ExtResource("6_ghpyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1999998, 1.3, 0.64)
+entity = {
+"StartDisabled": 0,
+"angles": Vector3(0, 0, 0),
+"classname": "prop_interactable_screen",
+"connections": {
+"": ",,,0,-1"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 0]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 15,
+"origin": Vector3(160, -32, 65),
+"resource_path": "default",
+"targetname": "sad"
+}
+
+[node name="Control" type="Control" parent="VMFNode/Entities/props/sad_15/Root/SubViewport" index="0" instance=ExtResource("7_44saj")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_7mbro")
+metadata/_custom_type_script = "uid://b33xqak3k4u45"
+
+[node name="screen" parent="VMFNode/Entities/props/sad_15/Root" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_44saj")
+
+[node name="triggers" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="trigger_once_21" parent="VMFNode/Entities/triggers" instance=ExtResource("12_xrtyr")]
+entity = {
+"StartDisabled": 0,
+"classname": "trigger_once",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 21,
+"origin": Vector3(0, 0, 0),
+"spawnflags": 1
+}
+flags = 1
+
+[node name="trigger_once_33" parent="VMFNode/Entities/triggers" instance=ExtResource("12_xrtyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 1.92, -3.84)
+entity = {
+"StartDisabled": 0,
+"classname": "trigger_once",
+"connections": {
+"OnTrigger": "sad,CallAction,meow,0,0"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 2000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 33,
+"origin": Vector3(320, 192, 96),
+"solid": {
+"editor": {
+"color": Vector3(220, 30, 220),
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 29,
+"side": [{
+"id": 18,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(256, 256, 128), Vector3(384, 256, 128), Vector3(384, 128, 128)],
+"value": Plane(0, 0, 1, 128),
+"vecsum": Vector3(1024, 640, 384)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(256, 256, 128), Vector3(384, 256, 128), Vector3(384, 128, 128), Vector3(256, 128, 128)]
+}
+}, {
+"id": 17,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(256, 128, 64), Vector3(384, 128, 64), Vector3(384, 256, 64)],
+"value": Plane(0, 0, -1, -64),
+"vecsum": Vector3(1024, 512, 192)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(256, 128, 64), Vector3(384, 128, 64), Vector3(384, 256, 64), Vector3(256, 256, 64)]
+}
+}, {
+"id": 16,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(256, 256, 128), Vector3(256, 128, 128), Vector3(256, 128, 64)],
+"value": Plane(-1, 0, 0, -256),
+"vecsum": Vector3(768, 512, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(256, 256, 128), Vector3(256, 128, 128), Vector3(256, 128, 64), Vector3(256, 256, 64)]
+}
+}, {
+"id": 15,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(384, 256, 64), Vector3(384, 128, 64), Vector3(384, 128, 128)],
+"value": Plane(1, 0, 0, 384),
+"vecsum": Vector3(1152, 512, 256)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(384, 256, 64), Vector3(384, 128, 64), Vector3(384, 128, 128), Vector3(384, 256, 128)]
+}
+}, {
+"id": 14,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(384, 256, 128), Vector3(256, 256, 128), Vector3(256, 256, 64)],
+"value": Plane(0, 1, 0, 256),
+"vecsum": Vector3(896, 768, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(384, 256, 128), Vector3(256, 256, 128), Vector3(256, 256, 64), Vector3(384, 256, 64)]
+}
+}, {
+"id": 13,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(384, 128, 64), Vector3(256, 128, 64), Vector3(256, 128, 128)],
+"value": Plane(0, -1, 0, -128),
+"vecsum": Vector3(896, 384, 256)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(384, 128, 64), Vector3(256, 128, 64), Vector3(256, 128, 128), Vector3(384, 128, 128)]
+}
+}]
+},
+"spawnflags": 1
+}
+flags = 1
+
+[node name="collision" parent="VMFNode/Entities/triggers/trigger_once_33/area" index="0"]
+shape = SubResource("ConvexPolygonShape3D_7mbro")
+
 [editable path="VMFNode/Entities/infos/info_player_start_7"]
 [editable path="VMFNode/Entities/lights/light_9"]
+[editable path="VMFNode/Entities/props/sad_15"]
+[editable path="VMFNode/Entities/triggers/trigger_once_21"]
+[editable path="VMFNode/Entities/triggers/trigger_once_33"]

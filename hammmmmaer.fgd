@@ -19,15 +19,14 @@
 
 	]
 
-	resource_path(string) : "Resource Path" : "default" : "The path to the screen resource without the extension. If not found, it will be using the default one"
 	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
 
 	output OnAction1(void) : ""
 	output OnAction2(void) : ""
 	output OnAction3(void) : ""
 	output OnAction4(void) : ""
-	output CallAction(string) : ""
 
+	input CallAction(string) : ""
 	input Toggle(void) : ""
 	input Enable(void) : ""
 	input Disable(void) : ""

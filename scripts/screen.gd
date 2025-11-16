@@ -20,7 +20,7 @@ var is_mouse_over: bool = false
 @onready var parent: prop_interactable_screen = get_parent()
 
 func _ready() -> void:
-	parent.CallAction.connect(func(e): called_action.emit(e))
+	parent._InternalCallAction.connect(func(e): called_action.emit(e))
 	
 	var screen_mat = screen_material.duplicate()
 	screen_mesh.set_surface_override_material(0, screen_mat)

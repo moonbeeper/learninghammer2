@@ -151,7 +151,14 @@ func get_inputs(script: Script):
 	return "\n".join(inputs);
 
 func get_outputs(script: Script):
-	var outputs = script.get_script_signal_list().map(func(sig):
+	var outputs = script.get_script_signal_list() \
+	# Modified to skip signals with _Internal in their name. It does NOT check if is a prefix.
+	.filter(func(sig):
+		var has_internal = sig["name"].find("_Internal") != -1
+		if has_internal: return false
+		return true
+	) \
+	.map(func(sig):
 		var type = sig.args[0].name if sig.args.size() > 0 else "void";
 		if type.begins_with("_"): type = "void";
 

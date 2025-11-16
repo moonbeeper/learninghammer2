@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh818xui81xv5"]
 
-[ext_resource type="Script" uid="uid://5e4cydewqvdo" path="res://addons/godotvmf/src/vmf_runtime_controller.gd" id="1_s5ltg"]
+[ext_resource type="Script" uid="uid://5d2rodawi73o" path="res://addons/godotvmf/src/vmf_runtime_controller.gd" id="1_s5ltg"]
 
 [node name="Hammer" type="Node3D"]
 script = ExtResource("1_s5ltg")
@@ -14,4 +14,3 @@ hammer_setup = "In hammer do following steps:
 	5. Click \"New\" and add into \"Command\" field this - $game_exe
 	6. Add into \"Parameters\" field this
 	 --path $gamedir scenes/hammer.tscn --vmf $file"
-metadata/_custom_type_script = "uid://5e4cydewqvdo"

@@ -17,7 +17,7 @@ signal OnAction2()
 signal OnAction3()
 signal OnAction4()
 
-signal CallAction(string: String) # must be "string" or else the generated fdg will have an incorrect type
+signal _InternalCallAction(action: String) 
 
 @warning_ignore_restore("unused_signal")
 
@@ -28,6 +28,7 @@ var default_resource: InteractableScreenResource = preload("res://resources/scre
 
 ## The path to the screen resource without the extension. If not found, it will be using the default one
 ## @exposed
+
 var resource_path: String = "default":
 	get: return entity.get("resource_path")
 
@@ -51,6 +52,8 @@ func get_resource(resource_name: String) -> InteractableScreenResource:
 		return resource
 	print("Interactable screen resource wasn't found, using default one")
 	return default_resource
-
-func _on_call_action(action_name: String) -> void:
-	print("prop interactable screen '%s' is getting this action %s called" % [name, action_name])
+	
+# must be "string" or else the generated fdg will have an incorrect type
+func CallAction(string: String) -> void:  
+	print("prop interactable screen '%s' is getting this action %s called" % [name, string])
+	_InternalCallAction.emit(string)
