@@ -1,16 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://cggqlwb1qdsem"]
+[gd_scene load_steps=14 format=3 uid="uid://cggqlwb1qdsem"]
 
 [ext_resource type="Script" uid="uid://dmgqtn6kigcqi" path="res://scripts/player.gd" id="1_u63mc"]
 [ext_resource type="Texture2D" uid="uid://ck4vfksub38gf" path="res://materials/flashlight_pattern.png" id="2_bms3g"]
 [ext_resource type="Texture2D" uid="uid://b0p0sajl6f2a4" path="res://materials/player_shadow.png" id="3_me0cc"]
 [ext_resource type="Material" uid="uid://dg36fnthsm7cw" path="res://materials/crosshair.tres" id="4_7lbay"]
 [ext_resource type="Texture2D" uid="uid://dmipqji2p8aqd" path="res://materials/crosshair.png" id="4_hqdnm"]
+[ext_resource type="Script" uid="uid://crl5y3f7qfi0p" path="res://scripts/fps_label.gd" id="5_ejohg"]
+[ext_resource type="Script" uid="uid://cy3mht08veghx" path="res://scripts/player_info_caption.gd" id="5_qbdof"]
+[ext_resource type="Texture2D" uid="uid://cclekf6ove05e" path="res://materials/caption_info_icon.png" id="6_2wrp4"]
+[ext_resource type="Shader" uid="uid://dlf30ffrp7ve1" path="res://shaders/curved_ui.gdshader" id="7_46y3y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bms3g"]
 radius = 0.32
 height = 1.44
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "collision", "camera", "ray_stair_below", "ray_stair_front", "hand_point", "flash_spot_light", "ui_fps_label", "ui_crosshair")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46y3y"]
+shader = ExtResource("7_46y3y")
+shader_parameter/curve_strength = 0.30000006175000005
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wrp4"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lbay"]
+bg_color = Color(0.6431373, 0.6431373, 0.6431373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "collision", "camera", "ray_stair_below", "ray_stair_front", "hand_point", "flash_spot_light", "ui_crosshair")]
 script = ExtResource("1_u63mc")
 head = NodePath("Head")
 collision = NodePath("CollisionShape3D")
@@ -19,10 +41,10 @@ ray_stair_below = NodePath("StarsBelow")
 ray_stair_front = NodePath("StarsFront")
 hand_point = NodePath("Head/Camera3D/HandPoint")
 flash_spot_light = NodePath("Flashlight")
-ui_fps_label = NodePath("CanvasLayer/Control/Label")
-ui_crosshair = NodePath("CanvasLayer/Control/TextureRect")
+ui_crosshair = NodePath("CanvasLayer/Control/crosshair")
 jump_height = 0.7
 max_head_rotation = 80.0
+metadata/_edit_horizontal_guides_ = [468.0]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
@@ -67,6 +89,128 @@ cull_mask = 1048063
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_46y3y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+msaa_2d = 1
+screen_space_aa = 1
+oversampling_override = 2.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoCaption" type="PanelContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control" node_paths=PackedStringArray("label")]
+clip_contents = true
+custom_minimum_size = Vector2(128, 56)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -236.0
+offset_right = 64.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(64, 28)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wrp4")
+script = ExtResource("5_qbdof")
+label = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="IconContainer" type="CenterContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer"]
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/IconContainer"]
+custom_minimum_size = Vector2(44, 46)
+layout_mode = 2
+texture = ExtResource("6_2wrp4")
+expand_mode = 1
+
+[node name="SeparatorContainer" type="CenterContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="Separator" type="Panel" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/SeparatorContainer"]
+custom_minimum_size = Vector2(2, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7lbay")
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "hello"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="GUI_Container" type="MarginContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 24
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/GUI_Container"]
+layout_mode = 2
+border_color = Color(1, 0, 0.8, 1)
+border_width = 1.6
+
+[node name="Control" type="Control" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/GUI_Container"]
+layout_mode = 2
+
+[node name="UI_FPS" type="Label" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/GUI_Container/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -68.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "??? FPS"
+script = ExtResource("5_ejohg")
+metadata/_custom_type_script = "uid://crl5y3f7qfi0p"
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -75,13 +219,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "???"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="crosshair" type="TextureRect" parent="CanvasLayer/Control"]
 material = ExtResource("4_7lbay")
 layout_mode = 1
 anchors_preset = 8

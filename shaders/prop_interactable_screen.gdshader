@@ -28,7 +28,7 @@ void fragment() {
 	// remap uvs
 	vec2 local_uv = (UV - uv_min) / (uv_max - uv_min);
 	// do horizontal or vertical or whatever flip. x for y and y for x
-	local_uv = vec2(local_uv.y,  local_uv.x); 
+	local_uv = vec2(local_uv.y,  local_uv.x);
 
 	// discard anything outside uvs
     if (local_uv.x < 0.0 || local_uv.x > 1.0 || local_uv.y < 0.0 || local_uv.y > 1.0) {
@@ -36,7 +36,7 @@ void fragment() {
     }
 
     ALBEDO = texture(screen_tex, local_uv).rgb;
-	
+
 	float metallic_tex = dot(texture(texture_metallic, UV), metallic_texture_channel);
 	METALLIC = metallic_tex * metallic;
 	SPECULAR = specular;
@@ -48,7 +48,7 @@ void fragment() {
 	// Normal Map: Enabled
 	NORMAL_MAP = texture(texture_normal, UV).rgb;
 	NORMAL_MAP_DEPTH = normal_scale;
-	
+
 	vec3 emission_tex = texture(screen_tex, local_uv).rgb;
 	// Emission Operator: Add
 	EMISSION = (emission.rgb + emission_tex) * emission_energy;

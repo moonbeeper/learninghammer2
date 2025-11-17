@@ -1,3 +1,19 @@
+@PointClass base(Targetname, Origin) iconsprite("editor/env_sky.vmt") = env_instructor_hint : "Creates the default hardcoded world enviroment" [
+	spawnflags(Flags) = [
+
+	]
+
+	meow(choices) : "Meow" : "1" = [		"0" : "No"		"1" : "Yes"	]
+	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
+
+
+
+	input Toggle(void) : ""
+	input Enable(void) : ""
+	input Disable(void) : ""
+	input Kill(void) : ""
+]
+
 @PointClass base(Targetname, Origin) iconsprite("editor/env_sky.vmt") = env_sky : "Creates the default hardcoded world enviroment" [
 	spawnflags(Flags) = [
 

@@ -3,6 +3,9 @@ class_name Player
 
 static var INSTANCE: Player
 
+signal ShowInstructorHint(hint: String, time: float)
+signal HideInstructorHint()
+
 @export var head: Node3D
 @export var collision: CollisionShape3D
 @export var camera: Camera3D
@@ -10,7 +13,7 @@ static var INSTANCE: Player
 @export var ray_stair_front: RayCast3D
 @export var hand_point: Node3D
 @export var flash_spot_light: SpotLight3D
-@export var ui_fps_label: Label
+#@export var ui_fps_label: Label
 @export var ui_crosshair: TextureRect
 
 @export var mouse_sensitivity: float = 0.1
@@ -108,6 +111,7 @@ func input_interact(_event: InputEvent) -> void:
 
 func input_flashlight(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
+		ShowInstructorHint.emit("hello world", 4.0)
 		if is_flashlight_enabled:
 			is_flashlight_enabled = false
 			flash_spot_light.visible = is_flashlight_enabled
@@ -149,7 +153,7 @@ func input_screen_click(event: InputEvent) -> void:
 		
 func _process(delta: float) -> void:
 	process_flashlight_movement(delta)
-	process_ui_fps(delta)
+	#process_ui_fps(delta)
 	process_interaction_screen_cursor(delta)
 	
 func _physics_process(delta: float) -> void:
@@ -209,8 +213,8 @@ func process_noclip_movement(delta: float) -> void:
 	
 	move_and_slide()
 
-func process_ui_fps(_delta: float) -> void:
-	ui_fps_label.text = str(Engine.get_frames_per_second())
+#func process_ui_fps(_delta: float) -> void:
+	#ui_fps_label.text = "%s FPS" % str(Engine.get_frames_per_second())
 
 func process_interaction_screen_cursor(_delta: float) -> void:
 	var ray_start = camera.global_transform.origin
@@ -297,3 +301,12 @@ func show_crosshair() -> void:
 	crosshair_tween = create_tween()
 	crosshair_tween.tween_property(ui_crosshair.material, "shader_parameter/alpha", 1.0, crosshair_tween_duration)
 	crosshair_tween.finished.connect(func(): crosshair_tween_inprogress = false)  # Use signal instead of await!
+
+## Shows an instructor hint to the player. If one is being showed already, it will be replaced. Supports BBCode!
+func show_instructor_hint(hint: String, time: float) -> void:
+	print("asked to show instructor hint '%s' for %s s" % [hint, time])
+	ShowInstructorHint.emit(hint)
+
+## Hides the current instructor hint.
+func hide_instructor_hint() -> void:
+	HideInstructorHint.emit()

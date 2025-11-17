@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw3so510qvjsq"]
+
+[ext_resource type="Script" uid="uid://cetvp2yal2iu6" path="res://entities/env_instructor_hint.gd" id="1_0cav8"]
+
+[node name="env_instructor_hint" type="Node3D"]
+script = ExtResource("1_0cav8")

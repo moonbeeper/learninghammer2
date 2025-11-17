@@ -3,3 +3,4 @@
 /android/
 _WORK
 .current_process
+*.tmp
