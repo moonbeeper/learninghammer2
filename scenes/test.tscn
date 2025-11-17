@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3jyrry46a4pt"]
+[gd_scene load_steps=20 format=3 uid="uid://c3jyrry46a4pt"]
 
 [ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="1_j5jx5"]
 [ext_resource type="ArrayMesh" uid="uid://b0vfv04pxxwd" path="res://geometry/test_vmf_import.mesh" id="2_lpvoh"]
@@ -14,15 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://urtyo8pv8tfk" path="res://entities/trigger_once.tscn" id="12_xrtyr"]
 [ext_resource type="PackedScene" uid="uid://dw3wc4ii6tuan" path="res://entities/trigger_multiple.tscn" id="13_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dw3so510qvjsq" path="res://entities/env_instructor_hint.tscn" id="13_44saj"]
+[ext_resource type="PackedScene" uid="uid://bl3yd2jo07xrf" path="res://entities/env_sky.tscn" id="15_ff6ho"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7mbro"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ff6ho"]
 viewport_path = NodePath("VMFNode/Entities/props/sad_15/Root/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ff6ho"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yos8"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_ff6ho")
-shader_parameter/screen_tex = SubResource("ViewportTexture_7mbro")
+shader_parameter/screen_tex = SubResource("ViewportTexture_ff6ho")
 shader_parameter/uv_min = Vector2(0.52, 0.48)
 shader_parameter/uv_max = Vector2(0.738, 0.016)
 shader_parameter/roughness = 0.0
@@ -39,10 +40,10 @@ shader_parameter/texture_ambient_occlusion = ExtResource("10_7yos8")
 shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/ao_light_affect = 0.0
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7yos8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5jxlq"]
 points = PackedVector3Array(-1.2799997, -0.64, -1.28, -1.2799997, 0.64, -1.28, 1.2800002, -0.64, -1.28, -1.2799997, -0.64, 1.28, -1.2799997, 0.64, 1.28, 1.2800002, 0.64, -1.28, 1.2800002, -0.64, 1.28, 1.2800002, 0.64, 1.28)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5jxlq"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xrtyr"]
 points = PackedVector3Array(-1.2799196, -0.64, -1.2799997, -1.2799196, 0.64, -1.2799997, 1.2800803, -0.64, -1.2799997, -1.2799196, -0.64, 1.2800002, -1.2799196, 0.64, 1.2800002, 1.2800803, 0.64, -1.2799997, 1.2800803, -0.64, 1.2800002, 1.2800803, 0.64, 1.2800002)
 
 [node name="Test" type="Node3D"]
@@ -147,7 +148,7 @@ script = ExtResource("8_7mbro")
 metadata/_custom_type_script = "uid://b33xqak3k4u45"
 
 [node name="screen" parent="VMFNode/Entities/props/sad_15/Root" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_ff6ho")
+surface_material_override/0 = SubResource("ShaderMaterial_7yos8")
 
 [node name="triggers" type="Node3D" parent="VMFNode/Entities"]
 
@@ -173,7 +174,7 @@ entity = {
 "StartDisabled": 0,
 "classname": "trigger_multiple",
 "connections": {
-"OnTrigger": ["sad,CallAction,meow,0,-1", "hello_world_caption,StartHint,,0,-1"]
+"OnTrigger": ["sad,CallAction,meow,0,-1", "hello_world_caption,StartHint,,0,-1", "hello_world_caption3,StartHint,,0,-1"]
 },
 "editor": {
 "color": Vector3(220, 30, 220),
@@ -366,7 +367,7 @@ entity = {
 flags = 1
 
 [node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_33/area" index="0"]
-shape = SubResource("ConvexPolygonShape3D_7yos8")
+shape = SubResource("ConvexPolygonShape3D_5jxlq")
 
 [node name="trigger_multiple_90" parent="VMFNode/Entities/triggers" instance=ExtResource("13_7mbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9771996, 1.92, 4.7999997)
@@ -567,7 +568,7 @@ entity = {
 flags = 1
 
 [node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_90/area" index="0"]
-shape = SubResource("ConvexPolygonShape3D_5jxlq")
+shape = SubResource("ConvexPolygonShape3D_xrtyr")
 
 [node name="envs" type="Node3D" parent="VMFNode/Entities"]
 
@@ -607,6 +608,40 @@ entity = {
 "timeout": -1
 }
 
+[node name="env_sky_121" parent="VMFNode/Entities/envs" instance=ExtResource("15_ff6ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12, 1.5999999, -1.92)
+entity = {
+"StartDisabled": 0,
+"classname": "env_sky",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 121,
+"meow": 1,
+"origin": Vector3(56, 96, 80)
+}
+
+[node name="hello_world_caption3_134" parent="VMFNode/Entities/envs" groups=["hello_world_caption3"] instance=ExtResource("13_44saj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7285899, 1.4399999, -1.532604)
+entity = {
+"StartDisabled": 0,
+"caption": "Press %jump% to jump.",
+"classname": "env_instructor_hint",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 0]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 134,
+"origin": Vector3(86.4295, 76.6302, 72),
+"targetname": "hello_world_caption3",
+"timeout": 5
+}
+
 [editable path="VMFNode/Entities/infos/info_player_start_7"]
 [editable path="VMFNode/Entities/lights/light_9"]
 [editable path="VMFNode/Entities/props/sad_15"]
@@ -615,3 +650,5 @@ entity = {
 [editable path="VMFNode/Entities/triggers/trigger_multiple_90"]
 [editable path="VMFNode/Entities/envs/hello_world_caption_47"]
 [editable path="VMFNode/Entities/envs/hello_world_caption2_105"]
+[editable path="VMFNode/Entities/envs/env_sky_121"]
+[editable path="VMFNode/Entities/envs/hello_world_caption3_134"]

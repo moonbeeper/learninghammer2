@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "13"
+	"mapversion" "17"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "13"
+	"mapversion" "17"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -300,6 +300,7 @@ entity
 	{
 		"OnTrigger" "sad,CallAction,meow,0,-1"
 		"OnTrigger" "hello_world_caption,StartHint,,0,-1"
+		"OnTrigger" "hello_world_caption3,StartHint,,0,-1"
 	}
 	solid
 	{
@@ -591,6 +592,38 @@ entity
 	"targetname" "hello_world_caption2"
 	"timeout" "-1"
 	"origin" "201.913 -220.685 72"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "121"
+	"classname" "env_sky"
+	"meow" "1"
+	"origin" "56 96 80"
+	"StartDisabled" "0"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 500]"
+	}
+}
+entity
+{
+	"id" "134"
+	"classname" "env_instructor_hint"
+	"caption" "Press %jump% to jump."
+	"StartDisabled" "0"
+	"targetname" "hello_world_caption3"
+	"timeout" "5"
+	"origin" "86.4295 76.6302 72"
 	editor
 	{
 		"color" "220 30 220"
