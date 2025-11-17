@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://dswjrekihao6q"
+path="res://.godot/imported/env_instructor_hint.vtf-f208557b03dacd4022e7a3bb5d7f0454.vtf.res"
+
+[deps]
+
+source_file="res://materials/editor/env_instructor_hint.vtf"
+dest_files=["res://.godot/imported/env_instructor_hint.vtf-f208557b03dacd4022e7a3bb5d7f0454.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

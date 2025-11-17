@@ -111,7 +111,6 @@ func input_interact(_event: InputEvent) -> void:
 
 func input_flashlight(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
-		ShowInstructorHint.emit("hello world", 4.0)
 		if is_flashlight_enabled:
 			is_flashlight_enabled = false
 			flash_spot_light.visible = is_flashlight_enabled
@@ -305,7 +304,7 @@ func show_crosshair() -> void:
 ## Shows an instructor hint to the player. If one is being showed already, it will be replaced. Supports BBCode!
 func show_instructor_hint(hint: String, time: float) -> void:
 	print("asked to show instructor hint '%s' for %s s" % [hint, time])
-	ShowInstructorHint.emit(hint)
+	ShowInstructorHint.emit(hint, time)
 
 ## Hides the current instructor hint.
 func hide_instructor_hint() -> void:

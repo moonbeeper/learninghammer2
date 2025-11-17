@@ -19,6 +19,7 @@ func _ready() -> void:
 	modulate = Color(1,1,1,0)
 	
 func start_timer() -> void:
+	if show_time == -1.0: return # if its -1 we don't want to have a timeout
 	timer.wait_time = show_time
 	timer.start()
 	

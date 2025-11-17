@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3jyrry46a4pt"]
+[gd_scene load_steps=19 format=3 uid="uid://c3jyrry46a4pt"]
 
 [ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="1_j5jx5"]
 [ext_resource type="ArrayMesh" uid="uid://b0vfv04pxxwd" path="res://geometry/test_vmf_import.mesh" id="2_lpvoh"]
@@ -12,15 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="10_7yos8"]
 [ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="11_5jxlq"]
 [ext_resource type="PackedScene" uid="uid://urtyo8pv8tfk" path="res://entities/trigger_once.tscn" id="12_xrtyr"]
+[ext_resource type="PackedScene" uid="uid://dw3wc4ii6tuan" path="res://entities/trigger_multiple.tscn" id="13_7mbro"]
+[ext_resource type="PackedScene" uid="uid://dw3so510qvjsq" path="res://entities/env_instructor_hint.tscn" id="13_44saj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ghpyy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mbro"]
 viewport_path = NodePath("VMFNode/Entities/props/sad_15/Root/SubViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_44saj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ff6ho"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_ff6ho")
-shader_parameter/screen_tex = SubResource("ViewportTexture_ghpyy")
+shader_parameter/screen_tex = SubResource("ViewportTexture_7mbro")
 shader_parameter/uv_min = Vector2(0.52, 0.48)
 shader_parameter/uv_max = Vector2(0.738, 0.016)
 shader_parameter/roughness = 0.0
@@ -37,8 +39,11 @@ shader_parameter/texture_ambient_occlusion = ExtResource("10_7yos8")
 shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/ao_light_affect = 0.0
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7mbro"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7yos8"]
 points = PackedVector3Array(-1.2799997, -0.64, -1.28, -1.2799997, 0.64, -1.28, 1.2800002, -0.64, -1.28, -1.2799997, -0.64, 1.28, -1.2799997, 0.64, 1.28, 1.2800002, 0.64, -1.28, 1.2800002, -0.64, 1.28, 1.2800002, 0.64, 1.28)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5jxlq"]
+points = PackedVector3Array(-1.2799196, -0.64, -1.2799997, -1.2799196, 0.64, -1.2799997, 1.2800803, -0.64, -1.2799997, -1.2799196, -0.64, 1.2800002, -1.2799196, 0.64, 1.2800002, 1.2800803, 0.64, -1.2799997, 1.2800803, -0.64, 1.2800002, 1.2800803, 0.64, 1.2800002)
 
 [node name="Test" type="Node3D"]
 
@@ -142,7 +147,7 @@ script = ExtResource("8_7mbro")
 metadata/_custom_type_script = "uid://b33xqak3k4u45"
 
 [node name="screen" parent="VMFNode/Entities/props/sad_15/Root" index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_44saj")
+surface_material_override/0 = SubResource("ShaderMaterial_ff6ho")
 
 [node name="triggers" type="Node3D" parent="VMFNode/Entities"]
 
@@ -162,13 +167,13 @@ entity = {
 }
 flags = 1
 
-[node name="trigger_once_33" parent="VMFNode/Entities/triggers" instance=ExtResource("12_xrtyr")]
+[node name="trigger_multiple_33" parent="VMFNode/Entities/triggers" instance=ExtResource("13_7mbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 1.92, -3.84)
 entity = {
 "StartDisabled": 0,
-"classname": "trigger_once",
+"classname": "trigger_multiple",
 "connections": {
-"OnTrigger": "sad,CallAction,meow,0,0"
+"OnTrigger": ["sad,CallAction,meow,0,-1", "hello_world_caption,StartHint,,0,-1"]
 },
 "editor": {
 "color": Vector3(220, 30, 220),
@@ -355,15 +360,258 @@ entity = {
 }
 }]
 },
-"spawnflags": 1
+"spawnflags": 1,
+"wait": 1
 }
 flags = 1
 
-[node name="collision" parent="VMFNode/Entities/triggers/trigger_once_33/area" index="0"]
-shape = SubResource("ConvexPolygonShape3D_7mbro")
+[node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_33/area" index="0"]
+shape = SubResource("ConvexPolygonShape3D_7yos8")
+
+[node name="trigger_multiple_90" parent="VMFNode/Entities/triggers" instance=ExtResource("13_7mbro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9771996, 1.92, 4.7999997)
+entity = {
+"StartDisabled": 0,
+"classname": "trigger_multiple",
+"connections": {
+"OnTrigger": "hello_world_caption2,StartHint,,0,-1"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 2000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 90,
+"origin": Vector3(298.86, -240, 96),
+"solid": {
+"editor": {
+"color": Vector3(220, 30, 220),
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 91,
+"side": [{
+"id": 30,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(234.864, -176, 128), Vector3(362.864, -176, 128), Vector3(362.864, -304, 128)],
+"value": Plane(0, 0, 1, 128),
+"vecsum": Vector3(960.59204, -656, 384)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 84.5422,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -192.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(234.864, -176, 128), Vector3(362.864, -176, 128), Vector3(362.864, -304, 128), Vector3(234.864, -304, 128)]
+}
+}, {
+"id": 29,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(234.864, -304, 64), Vector3(362.864, -304, 64), Vector3(362.864, -176, 64)],
+"value": Plane(0, 0, -1, -64),
+"vecsum": Vector3(960.59204, -784, 192)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 84.5422,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -192.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(234.864, -304, 64), Vector3(362.864, -304, 64), Vector3(362.864, -176, 64), Vector3(234.864, -176, 64)]
+}
+}, {
+"id": 28,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(234.864, -176, 128), Vector3(234.864, -304, 128), Vector3(234.864, -304, 64)],
+"value": Plane(-1, 0, 0, -234.864),
+"vecsum": Vector3(704.592, -784, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 192.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(234.864, -176, 128), Vector3(234.864, -304, 128), Vector3(234.864, -304, 64), Vector3(234.864, -176, 64)]
+}
+}, {
+"id": 27,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(362.864, -176, 64), Vector3(362.864, -304, 64), Vector3(362.864, -304, 128)],
+"value": Plane(1, 0, 0, 362.864),
+"vecsum": Vector3(1088.592, -784, 256)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 192.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(362.864, -176, 64), Vector3(362.864, -304, 64), Vector3(362.864, -304, 128), Vector3(362.864, -176, 128)]
+}
+}, {
+"id": 26,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(362.864, -176, 128), Vector3(234.864, -176, 128), Vector3(234.864, -176, 64)],
+"value": Plane(0, 1, 0, -176),
+"vecsum": Vector3(832.59204, -528, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 84.5422,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(362.864, -176, 128), Vector3(234.864, -176, 128), Vector3(234.864, -176, 64), Vector3(362.864, -176, 64)]
+}
+}, {
+"id": 25,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREBARREL",
+"plane": {
+"points": [Vector3(362.864, -304, 64), Vector3(234.864, -304, 64), Vector3(234.864, -304, 128)],
+"value": Plane(0, -1, 0, 304),
+"vecsum": Vector3(832.59204, -912, 256)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 84.5422,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(362.864, -304, 64), Vector3(234.864, -304, 64), Vector3(234.864, -304, 128), Vector3(362.864, -304, 128)]
+}
+}]
+},
+"spawnflags": 1,
+"wait": 1
+}
+flags = 1
+
+[node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_90/area" index="0"]
+shape = SubResource("ConvexPolygonShape3D_5jxlq")
+
+[node name="envs" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="hello_world_caption_47" parent="VMFNode/Entities/envs" groups=["hello_world_caption"] instance=ExtResource("13_44saj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 1.5999999, -1.8)
+entity = {
+"StartDisabled": 0,
+"caption": "hello world from map i/o !!!!",
+"classname": "env_instructor_hint",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 0]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 47,
+"origin": Vector3(135, 90, 80),
+"targetname": "hello_world_caption",
+"timeout": 5
+}
+
+[node name="hello_world_caption2_105" parent="VMFNode/Entities/envs" groups=["hello_world_caption2"] instance=ExtResource("13_44saj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03826, 1.4399999, 4.4136996)
+entity = {
+"StartDisabled": 0,
+"caption": "hello world from map i/o !!!!",
+"classname": "env_instructor_hint",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 0]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 105,
+"origin": Vector3(201.913, -220.685, 72),
+"targetname": "hello_world_caption2",
+"timeout": -1
+}
 
 [editable path="VMFNode/Entities/infos/info_player_start_7"]
 [editable path="VMFNode/Entities/lights/light_9"]
 [editable path="VMFNode/Entities/props/sad_15"]
 [editable path="VMFNode/Entities/triggers/trigger_once_21"]
-[editable path="VMFNode/Entities/triggers/trigger_once_33"]
+[editable path="VMFNode/Entities/triggers/trigger_multiple_33"]
+[editable path="VMFNode/Entities/triggers/trigger_multiple_90"]
+[editable path="VMFNode/Entities/envs/hello_world_caption_47"]
+[editable path="VMFNode/Entities/envs/hello_world_caption2_105"]

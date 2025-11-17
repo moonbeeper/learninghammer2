@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://crqref4gf5tji"
+path="res://.godot/imported/env_instructor_hint.vmt-f369282591ca5df1bc6a2ffe9d96bb62.vmt.res"
+
+[deps]
+
+source_file="res://materials/editor/env_instructor_hint.vmt"
+dest_files=["res://.godot/imported/env_instructor_hint.vmt-f369282591ca5df1bc6a2ffe9d96bb62.vmt.res"]
+
+[params]
+

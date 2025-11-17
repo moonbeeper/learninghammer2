@@ -1,13 +1,17 @@
-@PointClass base(Targetname, Origin) iconsprite("editor/env_sky.vmt") = env_instructor_hint : "Creates the default hardcoded world enviroment" [
+@PointClass base(Targetname) iconsprite("editor/env_instructor_hint.vmt") = env_instructor_hint : "Shows an instructor hint to the player HUD" [
 	spawnflags(Flags) = [
 
 	]
 
-	meow(choices) : "Meow" : "1" = [		"0" : "No"		"1" : "Yes"	]
+	caption(string) : "Caption" : "hello" : "The caption to be showed in the player's HUD"
+	timeout(float) : "Timeout" : "3.0" : "The caption timeout. May be set to -1.0 to have no timeout"
 	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
 
+	output CaptionShown(void) : ""
+	output CaptionHidden(void) : ""
 
-
+	input StartHint(void) : ""
+	input HideHint(void) : ""
 	input Toggle(void) : ""
 	input Enable(void) : ""
 	input Disable(void) : ""

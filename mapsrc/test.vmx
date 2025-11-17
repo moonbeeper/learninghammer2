@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "7"
+	"mapversion" "13"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -11,10 +11,10 @@ visgroups
 }
 viewsettings
 {
-	"bSnapToGrid" "0"
+	"bSnapToGrid" "1"
 	"bShowGrid" "1"
 	"bShowLogicalGrid" "0"
-	"nGridSpacing" "64"
+	"nGridSpacing" "16"
 }
 palette_plus
 {
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "7"
+	"mapversion" "13"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -291,13 +291,15 @@ entity
 entity
 {
 	"id" "33"
-	"classname" "trigger_once"
+	"classname" "trigger_multiple"
 	"origin" "320 192 96"
 	"spawnflags" "1"
 	"StartDisabled" "0"
+	"wait" "1"
 	connections
 	{
-		"OnTrigger" "sad,CallAction,meow,0,0"
+		"OnTrigger" "sad,CallAction,meow,0,-1"
+		"OnTrigger" "hello_world_caption,StartHint,,0,-1"
 	}
 	solid
 	{
@@ -423,6 +425,178 @@ entity
 		"visgroupshown" "1"
 		"visgroupautoshown" "1"
 		"logicalpos" "[0 2000]"
+	}
+}
+entity
+{
+	"id" "47"
+	"classname" "env_instructor_hint"
+	"caption" "hello world from map i/o !!!!"
+	"StartDisabled" "0"
+	"targetname" "hello_world_caption"
+	"timeout" "5"
+	"origin" "135 90 80"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
+	}
+}
+entity
+{
+	"id" "90"
+	"classname" "trigger_multiple"
+	"origin" "298.86 -240 96"
+	"spawnflags" "1"
+	"StartDisabled" "0"
+	"wait" "1"
+	connections
+	{
+		"OnTrigger" "hello_world_caption2,StartHint,,0,-1"
+	}
+	solid
+	{
+		"id" "91"
+		side
+		{
+			"id" "30"
+			"plane" "(234.864 -176 128) (362.864 -176 128) (362.864 -304 128)"
+			vertices_plus
+			{
+				"v" "234.864 -176 128"
+				"v" "362.864 -176 128"
+				"v" "362.864 -304 128"
+				"v" "234.864 -304 128"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[1 0 0 84.5422] 0.25"
+			"vaxis" "[0 -1 0 -192] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "29"
+			"plane" "(234.864 -304 64) (362.864 -304 64) (362.864 -176 64)"
+			vertices_plus
+			{
+				"v" "234.864 -304 64"
+				"v" "362.864 -304 64"
+				"v" "362.864 -176 64"
+				"v" "234.864 -176 64"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[1 0 0 84.5422] 0.25"
+			"vaxis" "[0 -1 0 -192] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "28"
+			"plane" "(234.864 -176 128) (234.864 -304 128) (234.864 -304 64)"
+			vertices_plus
+			{
+				"v" "234.864 -176 128"
+				"v" "234.864 -304 128"
+				"v" "234.864 -304 64"
+				"v" "234.864 -176 64"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[0 1 0 192] 0.25"
+			"vaxis" "[0 0 -1 -0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "27"
+			"plane" "(362.864 -176 64) (362.864 -304 64) (362.864 -304 128)"
+			vertices_plus
+			{
+				"v" "362.864 -176 64"
+				"v" "362.864 -304 64"
+				"v" "362.864 -304 128"
+				"v" "362.864 -176 128"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[0 1 0 192] 0.25"
+			"vaxis" "[0 0 -1 -0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "26"
+			"plane" "(362.864 -176 128) (234.864 -176 128) (234.864 -176 64)"
+			vertices_plus
+			{
+				"v" "362.864 -176 128"
+				"v" "234.864 -176 128"
+				"v" "234.864 -176 64"
+				"v" "362.864 -176 64"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[1 0 0 84.5422] 0.25"
+			"vaxis" "[0 0 -1 -0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		side
+		{
+			"id" "25"
+			"plane" "(362.864 -304 64) (234.864 -304 64) (234.864 -304 128)"
+			vertices_plus
+			{
+				"v" "362.864 -304 64"
+				"v" "234.864 -304 64"
+				"v" "234.864 -304 128"
+				"v" "362.864 -304 128"
+			}
+			"material" "DEV/DEV_MEASUREBARREL"
+			"uaxis" "[1 0 0 84.5422] 0.25"
+			"vaxis" "[0 0 -1 -0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+		}
+		editor
+		{
+			"color" "220 30 220"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2000]"
+	}
+}
+entity
+{
+	"id" "105"
+	"classname" "env_instructor_hint"
+	"caption" "hello world from map i/o !!!!"
+	"StartDisabled" "0"
+	"targetname" "hello_world_caption2"
+	"timeout" "-1"
+	"origin" "201.913 -220.685 72"
+	editor
+	{
+		"color" "220 30 220"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 0]"
 	}
 }
 cameras

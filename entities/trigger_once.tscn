@@ -8,3 +8,4 @@ script = ExtResource("1_ufyfw")
 [node name="area" type="Area3D" parent="."]
 
 [node name="collision" type="CollisionShape3D" parent="area"]
+debug_color = Color(0.96862745, 0.5254902, 0, 0.6627451)
