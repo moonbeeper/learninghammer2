@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="hammmmmaer"
-run/main_scene="uid://c3jyrry46a4pt"
+run/main_scene="uid://trb8odx2ywc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 
 SoundManager="*res://scripts/sound_manager.gd"
 Global="*res://scripts/global.gd"
-
-[display]
-
-window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

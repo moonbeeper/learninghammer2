@@ -7,6 +7,7 @@ base_font = ExtResource("1_h0qne")
 variation_opentype = {
 2003265652: 400
 }
+variation_embolden = -0.04
 opentype_features = {
 1667329140: 0
 }

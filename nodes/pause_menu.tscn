@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnx8n2hcqae5m"]
+
+[ext_resource type="Script" uid="uid://deuvhrm46f58g" path="res://scripts/pause_menu.gd" id="1_5j5rn"]
+[ext_resource type="Shader" uid="uid://clfbqx84rr87f" path="res://shaders/blur.gdshader" id="2_ff2c6"]
+[ext_resource type="FontFile" uid="uid://c4tc8g2ygr7ig" path="res://resources/fonts/Nunito-VariableFont_wght.ttf" id="3_r8wsw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8wsw"]
+shader = ExtResource("2_ff2c6")
+shader_parameter/offset = 3.418000162355
+
+[sub_resource type="FontVariation" id="FontVariation_jprnk"]
+base_font = ExtResource("3_r8wsw")
+variation_opentype = {
+2003265652: 600
+}
+opentype_features = {
+1667329140: 0
+}
+
+[sub_resource type="Gradient" id="Gradient_v12ay"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5j5rn"]
+gradient = SubResource("Gradient_v12ay")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v12ay"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5j5rn")
+
+[node name="blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r8wsw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blur2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2509804)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 376.0
+offset_bottom = 90.0
+theme_override_fonts/font = SubResource("FontVariation_jprnk")
+theme_override_font_sizes/font_size = 42
+text = "Paused"
+vertical_alignment = 1
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 80.0
+offset_right = -402.0
+offset_bottom = 81.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_5j5rn")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+custom_minimum_size = Vector2(1024, 584)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -292.0
+offset_right = 512.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(1, 0.627451, 0, 1)
+border_width = 1.4
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 256.0
+offset_bottom = -240.0
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_v12ay")
+text = "Resume"
+alignment = 0
+
+[node name="select_map" type="Button" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_v12ay")
+text = "Select Map"
+alignment = 0
+
+[node name="reload_map" type="Button" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_v12ay")
+text = "Reload Map"
+alignment = 0
+
+[node name="exit_to_desktop" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_v12ay")
+text = "Exit to Desktop"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/select_map" to="." method="_on_select_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/reload_map" to="." method="_on_reload_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit_to_desktop" to="." method="_on_exit_to_desktop_pressed"]

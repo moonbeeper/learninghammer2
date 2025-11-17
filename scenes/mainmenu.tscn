@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=3 uid="uid://trb8odx2ywc"]
+
+[ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="2_nkpmc"]
+[ext_resource type="ArrayMesh" uid="uid://b81qdi4tuiycs" path="res://geometry/mainmenu_vmf_import.mesh" id="3_85riq"]
+[ext_resource type="Shape3D" uid="uid://kxrlxpwp0654" path="res://geometry/mainmenu_vmf_collision_surface_prop_concrete.res" id="4_wf3n4"]
+[ext_resource type="PackedScene" uid="uid://crg6fm6bav7bl" path="res://models/editor/playerstart.mdl" id="5_h73c4"]
+[ext_resource type="Material" uid="uid://ba4bo3tilx68e" path="res://materials/editor/orange.vmt" id="6_uui5l"]
+[ext_resource type="Material" uid="uid://cyj7jniqjpcun" path="res://materials/editor/gray.vmt" id="7_4hago"]
+[ext_resource type="Shader" uid="uid://clfbqx84rr87f" path="res://shaders/blur.gdshader" id="9_h73c4"]
+[ext_resource type="Script" uid="uid://dhflqjhk2n61d" path="res://scripts/main_menu.gd" id="9_uui5l"]
+[ext_resource type="LightmapGIData" uid="uid://hsm57wuwkn1o" path="res://scenes/mainmenu.lmbake" id="9_wf3n4"]
+[ext_resource type="FontFile" uid="uid://c4tc8g2ygr7ig" path="res://resources/fonts/Nunito-VariableFont_wght.ttf" id="10_h73c4"]
+[ext_resource type="PackedScene" uid="uid://bl3yd2jo07xrf" path="res://entities/env_sky.tscn" id="15_a5e1i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uui5l"]
+shader = ExtResource("9_h73c4")
+shader_parameter/offset = 3.50000016625
+
+[sub_resource type="FontVariation" id="FontVariation_uui5l"]
+base_font = ExtResource("10_h73c4")
+variation_opentype = {
+2003265652: 800
+}
+variation_embolden = -0.04
+opentype_features = {
+1667329140: 0
+}
+
+[node name="Mainmenu" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="VMFNode" type="Node3D" parent="."]
+script = ExtResource("2_nkpmc")
+vmf = "res://mapsrc/mainmenu.vmf"
+
+[node name="Geometry" type="MeshInstance3D" parent="VMFNode"]
+mesh = ExtResource("3_85riq")
+
+[node name="surface_prop_concrete" type="StaticBody3D" parent="VMFNode/Geometry"]
+metadata/surface_prop = "concrete"
+
+[node name="collision" type="CollisionShape3D" parent="VMFNode/Geometry/surface_prop_concrete"]
+shape = ExtResource("4_wf3n4")
+
+[node name="playerstart172251643228985" parent="VMFNode/Geometry" instance=ExtResource("5_h73c4")]
+transform = Transform3D(4.107527e-08, 0.9396927, 0.34202, 1, -4.371139e-08, 0, 1.4950169e-08, 0.34202, -0.9396927, -6.2616997, 1.4, -1.508484)
+surface_material_override/0 = ExtResource("6_uui5l")
+surface_material_override/1 = ExtResource("7_4hago")
+
+[node name="playerstart172252062668676" parent="VMFNode/Geometry" instance=ExtResource("5_h73c4")]
+transform = Transform3D(0.81379765, -0.29619813, 0.5, 0.34202015, 0.9396926, 0, -0.4698463, 0.17101008, 0.8660254, -4.64, 1.28, -2.3999999)
+surface_material_override/0 = ExtResource("6_uui5l")
+surface_material_override/1 = ExtResource("7_4hago")
+
+[node name="playerstart172252482099016" parent="VMFNode/Geometry" instance=ExtResource("5_h73c4")]
+transform = Transform3D(0.049990505, -0.5713937, -0.8191521, 0.9961947, 0.087155804, 0, 0.07139386, -0.81603503, 0.57357633, -5.14, 2.58, -1.76)
+surface_material_override/0 = ExtResource("6_uui5l")
+surface_material_override/1 = ExtResource("7_4hago")
+
+[node name="playerstart172252901529474" parent="VMFNode/Geometry" instance=ExtResource("5_h73c4")]
+transform = Transform3D(0.22221935, -0.5475791, -0.80670655, 0.97237927, 0.18505386, 0.14224483, 0.071393855, -0.8160343, 0.5735772, -5.38, 2.54, -1.3)
+surface_material_override/0 = ExtResource("6_uui5l")
+surface_material_override/1 = ExtResource("7_4hago")
+
+[node name="playerstart172253320915253" parent="VMFNode/Geometry" instance=ExtResource("5_h73c4")]
+transform = Transform3D(0.30612025, -0.52936584, -0.7912409, 0.949312, 0.23207307, 0.21201138, 0.071394116, -0.81603545, 0.5735756, -5.2999997, 2.6799998, -1.757708)
+surface_material_override/0 = ExtResource("6_uui5l")
+surface_material_override/1 = ExtResource("7_4hago")
+
+[node name="Entities" type="Node3D" parent="VMFNode"]
+
+[node name="props" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="envs" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="env_sky_93" parent="VMFNode/Entities/envs" instance=ExtResource("15_a5e1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48, 1.4399999, -0.88)
+entity = {
+"StartDisabled": 0,
+"classname": "env_sky",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 3000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 93,
+"meow": 1,
+"origin": Vector3(-124, 44, 72)
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.97091603, 0.021291943, 0.23847167, 0, 0.9960378, -0.08893123, -0.23942031, -0.086344756, -0.96706903, -2.7385597, 1.6588469, -3.6544995)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("9_wf3n4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_uui5l")
+
+[node name="blur" type="ColorRect" parent="CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_uui5l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "play the hammmmmmmmmmmmmmmmmmer thing
+where i just added
+ more entities and uhh entites and shitty player hud"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer/Button"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -1.0
+offset_right = -5.0
+offset_bottom = 87.0
+color = Color(1, 0.898, 0.32, 1)
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/Control/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 91.0
+offset_right = 492.0
+offset_bottom = 194.0
+theme_override_fonts/font = SubResource("FontVariation_uui5l")
+theme_override_font_sizes/font_size = 36
+text = "hammmmmmmmer badly
+taped togther thing"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Label"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = -1.0
+offset_right = 466.0
+offset_bottom = 25.0
+theme_override_fonts/font = SubResource("FontVariation_uui5l")
+theme_override_font_sizes/font_size = 18
+text = "tm"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Label"]
+layout_mode = 0
+offset_left = 452.00003
+offset_top = -2.0
+offset_right = 454.00003
+offset_bottom = 27.0
+rotation = -0.9075712
+pivot_offset = Vector2(1, 14.5)
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/Button" to="CanvasLayer/Control" method="_on_button_pressed"]
+
+[editable path="VMFNode/Entities/envs/env_sky_93"]
