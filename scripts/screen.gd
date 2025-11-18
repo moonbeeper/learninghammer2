@@ -42,7 +42,7 @@ func world_to_viewport_pos(world_hit_pos: Vector3) -> Vector2:
 	return pos2d
 
 func emit_cursor_position(world_hit_pos: Vector3):
-	screen_mesh.material_overlay = highlight_material.duplicate()
+	#screen_mesh.material_overlay = highlight_material.duplicate()
 	var pos2d = world_to_viewport_pos(world_hit_pos)
 	
 	var motion_event = InputEventMouseMotion.new()
