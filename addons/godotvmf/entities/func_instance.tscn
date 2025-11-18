@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o4lost2k1as0"]
 
-[ext_resource type="Script" uid="uid://ca6sxuy4spw6j" path="res://addons/godotvmf/entities/func_instance.gd" id="1_3vr6e"]
+[ext_resource type="Script" uid="uid://c4ipw56g5awh1" path="res://addons/godotvmf/entities/func_instance.gd" id="1_3vr6e"]
 
 [node name="FuncInstance" type="Node3D"]
 script = ExtResource("1_3vr6e")
