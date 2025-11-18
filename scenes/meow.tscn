@@ -1,0 +1,1712 @@
+[gd_scene load_steps=30 format=4 uid="uid://gmbcgbcptmp"]
+
+[ext_resource type="Script" uid="uid://cdjylrq00bh7h" path="res://addons/godotvmf/src/vmf_node.gd" id="2_lpynu"]
+[ext_resource type="ArrayMesh" uid="uid://dkybjcechm52t" path="res://geometry/wa_vmf_import.mesh" id="2_s2f5p"]
+[ext_resource type="Shape3D" uid="uid://b7m3fp1exck73" path="res://geometry/wa_vmf_collision_surface_prop_concrete.res" id="3_vsbfq"]
+[ext_resource type="PackedScene" uid="uid://ddj2hyqaftihr" path="res://entities/info_player_start.tscn" id="4_i4lr0"]
+[ext_resource type="Shape3D" uid="uid://b65cmw8ofibva" path="res://geometry/wa_vmf_collision_surface_prop_default.res" id="4_inols"]
+[ext_resource type="PackedScene" uid="uid://bl3yd2jo07xrf" path="res://entities/env_sky.tscn" id="5_vsbfq"]
+[ext_resource type="PackedScene" uid="uid://dlim7ssqk6jwg" path="res://entities/prop_interactable_screen.tscn" id="6_k4s88"]
+[ext_resource type="Shape3D" uid="uid://bj1vxjis7s3g" path="res://geometry/wa_vmf_collision_surface_prop_tool_compilenodraw.res" id="6_yio57"]
+[ext_resource type="PackedScene" uid="uid://dw3so510qvjsq" path="res://entities/env_instructor_hint.tscn" id="7_cp4yo"]
+[ext_resource type="PackedScene" uid="uid://by0xfctr5feg6" path="res://nodes/screens/empty_portrait.tscn" id="7_y3r0x"]
+[ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://shaders/prop_interactable_screen.gdshader" id="9_eo7kw"]
+[ext_resource type="Script" uid="uid://b33xqak3k4u45" path="res://scripts/screen/base_ui.gd" id="9_y3r0x"]
+[ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="10_fadyf"]
+[ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="11_cp4yo"]
+[ext_resource type="PackedScene" uid="uid://dnx8n2hcqae5m" path="res://nodes/pause_menu.tscn" id="12_y3r0x"]
+[ext_resource type="PackedScene" uid="uid://6ylhe3k3dun2" path="res://entities/logic_auto.tscn" id="13_fadyf"]
+[ext_resource type="PackedScene" uid="uid://b8jyh2v06solr" path="res://entities/func_door.tscn" id="14_cp4yo"]
+[ext_resource type="Material" uid="uid://ch3rkiciujnn3" path="res://materials/dev/dev_measuregeneric01b.vmt" id="15_inols"]
+[ext_resource type="LightmapGIData" uid="uid://imp0n8ejvgdv" path="res://scenes/meow.lmbake" id="18_5ehjb"]
+[ext_resource type="PackedScene" uid="uid://dqohp4r0iukoo" path="res://addons/godotvmf/entities/light_spot.tscn" id="18_6lr8w"]
+[ext_resource type="PackedScene" uid="uid://bdg014m5mhqjt" path="res://addons/godotvmf/entities/light.tscn" id="19_j00pi"]
+[ext_resource type="PackedScene" uid="uid://urtyo8pv8tfk" path="res://entities/trigger_once.tscn" id="21_bpfvg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bpfvg"]
+viewport_path = NodePath("VMFNode/Entities/props/prop_interactable_screen_293/Root/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0pwm"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_eo7kw")
+shader_parameter/screen_tex = SubResource("ViewportTexture_bpfvg")
+shader_parameter/uv_min = Vector2(0.52, 0.48)
+shader_parameter/uv_max = Vector2(0.738, 0.016)
+shader_parameter/roughness = 0.0
+shader_parameter/texture_metallic = ExtResource("10_fadyf")
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 1, 0)
+shader_parameter/texture_roughness = ExtResource("10_fadyf")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.36999999172976
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.11999997496576
+shader_parameter/texture_normal = ExtResource("11_cp4yo")
+shader_parameter/normal_scale = 1.0
+shader_parameter/texture_ambient_occlusion = ExtResource("10_fadyf")
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_61uys"]
+_surfaces = [{
+"aabb": AABB(-0.79999995, -1.28, -0.07999992, 1.5999999, 2.56, 0.16000032),
+"attribute_data": PackedByteArray("/////wAAAEAAAEJB/////wAAkEAAAEJB/////wAAkEAAAEZB/////wAAAEAAAEZB/////wAAAEAAAEZB/////wAAkEAAAEZB/////wAAkEAAAEJB/////wAAAEAAAEJB/////wAAQsEAAMDA/////wAARsEAAMDA/////wAARsEAAADA/////wAAQsEAAADA/////wAAQsEAAADA/////wAARsEAAADA/////wAARsEAAMDA/////wAAQsEAAMDA/////wAAkEAAAMDA/////wAAAEAAAMDA/////wAAAEAAAADA/////wAAkEAAAADA/////wAAkEAAAADA/////wAAAEAAAADA/////wAAAEAAAMDA/////wAAkEAAAADA/////wAAAEAAAMDA/////wAAkEAAAMDA"),
+"format": 34359742495,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFwAYABkA"),
+"material": ExtResource("15_inols"),
+"name": "surface_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("zMxMvwrXoz8A16O9zMxMPwrXoz8A16O9zMxMPwrXoz9A16M9zMxMvwrXoz9A16M9zMxMvwrXo79A16M9zMxMPwrXo79A16M9zMxMPwrXo78A16O9zMxMvwrXo78A16O9zMxMvwrXoz8A16O9zMxMvwrXoz9A16M9zMxMvwrXo79A16M9zMxMvwrXo78A16O9zMxMPwrXo78A16O9zMxMPwrXo79A16M9zMxMPwrXoz9A16M9zMxMPwrXoz8A16O9zMxMPwrXoz8A16O9zMxMvwrXoz8A16O9zMxMvwrXo78A16O9zMxMPwrXo78A16O9zMxMPwrXo79A16M9zMxMvwrXo79A16M9zMxMvwrXoz9A16M9zMxMPwrXo79A16M9zMxMvwrXoz9A16M9zMxMPwrXoz9A16M9AID//////78AgP//////vwCA//////+/AID//////78AgAAA////PwCAAAD///8/AIAAAP///z8AgAAA////PwAAAID//wAAAAAAgP//AAAAAACA//8AAAAAAID//wAA//8AgP///////wCA////////AID///////8AgP//////////////P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////vw==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6rt7s"]
+points = PackedVector3Array(-0.79999995, -1.28, -0.07999992, -0.79999995, -1.28, 0.0800004, -0.79999995, 1.28, -0.07999992, 0.79984343, -1.28, -0.07999992, 0.79984343, -1.28, 0.0800004, -0.79999995, 1.28, 0.0800004, 0.79984343, 1.28, -0.07999992, 0.79984343, 1.28, 0.0800004)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mh061"]
+_surfaces = [{
+"aabb": AABB(-0.79999995, -1.28, -0.07999992, 1.5999999, 2.56, 0.16000032),
+"attribute_data": PackedByteArray("/////wAAAL8AAEJB/////wAAAEAAAEJB/////wAAAEAAAEZB/////wAAAL8AAEZB/////wAAAL8AAEZB/////wAAAEAAAEZB/////wAAAEAAAEJB/////wAAAL8AAEJB/////wAAQsEAAMDA/////wAARsEAAMDA/////wAARsEAAADA/////wAAQsEAAADA/////wAAQsEAAADA/////wAARsEAAADA/////wAARsEAAMDA/////wAAQsEAAMDA/////wAAAEAAAMDA/////wAAAL8AAMDA/////wAAAL8AAADA/////wAAAEAAAADA/////wAAAEAAAADA/////wAAAL8AAADA/////wAAAL8AAMDA/////wAAAEAAAADA/////wAAAL8AAMDA/////wAAAEAAAMDA"),
+"format": 34359742495,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFwAYABkA"),
+"material": ExtResource("15_inols"),
+"name": "surface_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("zMxMvwrXoz8A16O9zMxMPwrXoz8A16O9zMxMPwrXoz9A16M9zMxMvwrXoz9A16M9zMxMvwrXo79A16M9zMxMPwrXo79A16M9zMxMPwrXo78A16O9zMxMvwrXo78A16O9zMxMvwrXoz8A16O9zMxMvwrXoz9A16M9zMxMvwrXo79A16M9zMxMvwrXo78A16O9zMxMPwrXo78A16O9zMxMPwrXo79A16M9zMxMPwrXoz9A16M9zMxMPwrXoz8A16O9zMxMPwrXoz8A16O9zMxMvwrXoz8A16O9zMxMvwrXo78A16O9zMxMPwrXo78A16O9zMxMPwrXo79A16M9zMxMvwrXo79A16M9zMxMvwrXoz9A16M9zMxMPwrXo79A16M9zMxMvwrXoz9A16M9zMxMPwrXoz9A16M9AID//////78AgP//////vwCA//////+/AID//////78AgAAA////PwCAAAD///8/AIAAAP///z8AgAAA////PwAAAID//wAAAAAAgP//AAAAAACA//8AAAAAAID//wAA//8AgP///////wCA////////AID///////8AgP//////////////P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////vw==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_27m5q"]
+points = PackedVector3Array(-0.79999995, -1.28, -0.07999992, -0.79999995, -1.28, 0.0800004, -0.79999995, 1.28, -0.07999992, 0.79984343, -1.28, -0.07999992, 0.79984343, -1.28, 0.0800004, -0.79999995, 1.28, 0.0800004, 0.79984343, 1.28, -0.07999992, 0.79984343, 1.28, 0.0800004)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_shgu1"]
+points = PackedVector3Array(5.120001, 1.6000001, 0.95981216, 5.120001, 1.6000001, -0.9599998, -5.119999, 1.6000001, 0.95981216, 5.120001, -1.5999999, 0.95981216, 5.120001, -1.5999999, -0.9599998, -5.119999, 1.6000001, -0.9599998, -5.119999, -1.5999999, 0.95981216, -5.119999, -1.5999999, -0.9599998)
+
+[node name="meow" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_y3r0x")]
+
+[node name="VMFNode" type="Node3D" parent="."]
+script = ExtResource("2_lpynu")
+vmf = "res://mapsrc/wa.vmf"
+metadata/_custom_type_script = "uid://cdjylrq00bh7h"
+
+[node name="Geometry" type="MeshInstance3D" parent="VMFNode"]
+mesh = ExtResource("2_s2f5p")
+
+[node name="surface_prop_default" type="StaticBody3D" parent="VMFNode/Geometry"]
+metadata/surface_prop = "default"
+
+[node name="collision" type="CollisionShape3D" parent="VMFNode/Geometry/surface_prop_default"]
+shape = ExtResource("4_inols")
+
+[node name="surface_prop_concrete" type="StaticBody3D" parent="VMFNode/Geometry"]
+metadata/surface_prop = "concrete"
+
+[node name="collision" type="CollisionShape3D" parent="VMFNode/Geometry/surface_prop_concrete"]
+shape = ExtResource("3_vsbfq")
+
+[node name="surface_prop_tool_compilenodraw" type="StaticBody3D" parent="VMFNode/Geometry"]
+metadata/surface_prop = "tool_compilenodraw"
+
+[node name="collision" type="CollisionShape3D" parent="VMFNode/Geometry/surface_prop_tool_compilenodraw"]
+shape = ExtResource("6_yio57")
+
+[node name="Entities" type="Node3D" parent="VMFNode"]
+
+[node name="lights" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="light_2546" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76, 2.24, 0.64)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3001,
+"logicalpos": "[0 10500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2546,
+"origin": Vector3(188, -32, 112),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_2546" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_spot_2432" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(-1, 1.5180806e-08, 8.6094616e-08, 0, 0.98480767, -0.17364818, -8.742278e-08, -0.17364818, -0.98480767, 3.76, 1.7199999, 0.32)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(10, 270, 90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3001,
+"logicalpos": "[0 9000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2432,
+"origin": Vector3(188, -16, 86),
+"pitch": 10,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2432" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_3065" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6399999, 2.24, 0.64)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3064,
+"logicalpos": "[0 10500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3065,
+"origin": Vector3(-132, -32, 112),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_3065" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_spot_3078" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(-1, 1.5180806e-08, 8.6094616e-08, 0, 0.98480767, -0.17364818, -8.742278e-08, -0.17364818, -0.98480767, -2.6399999, 1.7199999, 0.32)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(10, 270, 90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3064,
+"logicalpos": "[0 9000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3078,
+"origin": Vector3(-132, -16, 86),
+"pitch": 10,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_3078" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_3633" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7599998, 2.24, 0.64)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3632,
+"logicalpos": "[0 10500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3633,
+"origin": Vector3(-388, -32, 112),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_3633" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_spot_3646" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(-1, 1.5180806e-08, 8.6094616e-08, 0, 0.98480767, -0.17364818, -8.742278e-08, -0.17364818, -0.98480767, -7.7599998, 1.7199999, 0.32)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(10, 270, 90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3632,
+"logicalpos": "[0 9000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3646,
+"origin": Vector3(-388, -16, 86),
+"pitch": 10,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_3646" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_3675" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.72, 2.24, 0.64)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3674,
+"logicalpos": "[0 10500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3675,
+"origin": Vector3(-836, -32, 112),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_3675" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_spot_3688" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(-1, 1.5180806e-08, 8.6094616e-08, 0, 0.98480767, -0.17364818, -8.742278e-08, -0.17364818, -0.98480767, -16.72, 1.7199999, 0.32)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(10, 270, 90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3674,
+"logicalpos": "[0 9000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3688,
+"origin": Vector3(-836, -16, 86),
+"pitch": 10,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_3688" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_3706" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.84, 2.24, 0.64)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3705,
+"logicalpos": "[0 10500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3706,
+"origin": Vector3(-1092, -32, 112),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_3706" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_spot_3719" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(-1, 1.5180806e-08, 8.6094616e-08, 0, 0.98480767, -0.17364818, -8.742278e-08, -0.17364818, -0.98480767, -21.84, 1.7199999, 0.32)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(10, 270, 90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(205, 122, 0),
+"groupid": 3705,
+"logicalpos": "[0 9000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3719,
+"origin": Vector3(-1092, -16, 86),
+"pitch": 10,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_3719" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2460" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, 2.72, 1.28, 7.04)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2460,
+"origin": Vector3(136, -352, 64),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2460" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2479" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, 2.72, 1.28, 6.08)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2479,
+"origin": Vector3(136, -304, 64),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2479" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2491" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, 2.7199798, 1.3358259, 5.12)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2491,
+"origin": Vector3(135.999, -256, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2491" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2497" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, 2.7199798, 1.3358259, 4.16)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2497,
+"origin": Vector3(135.999, -208, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2497" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2503" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, -0.1600128, 1.3358259, 4.16)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2503,
+"origin": Vector3(-8.00064, -208, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2503" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2509" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, -0.1600128, 1.3358259, 5.12)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2509,
+"origin": Vector3(-8.00064, -256, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2509" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2515" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, -0.1600128, 1.3358259, 6.08)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2515,
+"origin": Vector3(-8.00064, -304, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2515" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2521" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1.1924881e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, 1.1924881e-08, -5.2125306e-16, -0.1600128, 1.3358259, 7.04)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(90, 180, 0),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 10000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2521,
+"origin": Vector3(-8.00064, -352, 66.7913),
+"pitch": 90,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2521" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_spot_2935" parent="VMFNode/Entities/lights" instance=ExtResource("18_6lr8w")]
+transform = Transform3D(1, 0, 4.371139e-08, 0, 1, 0, -4.371139e-08, 0, 1, 1.28, 4.16, 7.44)
+default_light_energy = 0.78431374
+entity = {
+"_cone": 45,
+"_constant_attn": 0,
+"_distance": 0,
+"_exponent": 1,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_inner_cone": 30,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"angles": Vector3(0, 90, -90),
+"classname": "light_spot",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 1500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2935,
+"origin": Vector3(64, -372, 208),
+"pitch": 0,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_spot_2935" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="light_2968" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.039997, 4.16, 6.72)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 1500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 2968,
+"origin": Vector3(-2252, -336, 208),
+"spawnflags": 0,
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_2968" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="light_3780" parent="VMFNode/Entities/lights" instance=ExtResource("19_j00pi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 3.52, 9.599999)
+default_light_energy = 0.78431374
+entity = {
+"_constant_attn": 0,
+"_distance": 0,
+"_fifty_percent_distance": 0,
+"_hardfalloff": 0,
+"_light": Color(1, 1, 1, 0.78431374),
+"_lightHDR": Color(-0.003921569, -0.003921569, -0.003921569, 0.003921569),
+"_lightscaleHDR": 1,
+"_linear_attn": 0,
+"_quadratic_attn": 1,
+"_zero_percent_distance": 0,
+"classname": "light",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 2500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3780,
+"origin": Vector3(64, -480, 176),
+"style": 0
+}
+
+[node name="light" parent="VMFNode/Entities/lights/light_3780" index="0"]
+light_energy = 0.78431374
+light_bake_mode = 1
+omni_range = 44.280746
+omni_attenuation = 1.44
+
+[node name="infos" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="info_player_start_3" parent="VMFNode/Entities/infos" instance=ExtResource("4_i4lr0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.28, 1.3, 8.96)
+entity = {
+"angles": Vector3(0, 90, 0),
+"classname": "info_player_start",
+"editor": {
+"color": Vector3(0, 255, 0),
+"logicalpos": "[0 500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 3,
+"origin": Vector3(64, -448, 65)
+}
+
+[node name="envs" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="env_sky_5" parent="VMFNode/Entities/envs" instance=ExtResource("5_vsbfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48, 1.4399999, 7.52)
+entity = {
+"StartDisabled": 0,
+"classname": "env_sky",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 1000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 5,
+"meow": 1,
+"origin": Vector3(224, -376, 72)
+}
+
+[node name="move_around_hint_1237" parent="VMFNode/Entities/envs" groups=["move_around_hint"] instance=ExtResource("7_cp4yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.4399999, 7.52)
+entity = {
+"StartDisabled": 0,
+"caption": "Move around with %move_forward% %move_backward% %move_left% %move_right%",
+"classname": "env_instructor_hint",
+"connections": {
+"OnMapSpawn": "entrance_door,Open,,1,-1"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 13000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 1237,
+"origin": Vector3(200, -376, 72),
+"spawnflags": 0,
+"targetname": "move_around_hint",
+"timeout": 3
+}
+
+[node name="hammer_hint_1285" parent="VMFNode/Entities/envs" groups=["hammer_hint"] instance=ExtResource("7_cp4yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.92, 7.52)
+entity = {
+"StartDisabled": 0,
+"caption": "This is the third time I've used hammer to make maps! am pretty bad at it, still learning!",
+"classname": "env_instructor_hint",
+"connections": {
+"OnMapSpawn": "entrance_door,Open,,1,-1"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 13000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 1285,
+"origin": Vector3(200, -376, 96),
+"spawnflags": 0,
+"targetname": "hammer_hint",
+"timeout": 7
+}
+
+[node name="comment_5241" parent="VMFNode/Entities/envs" groups=["comment"] instance=ExtResource("7_cp4yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12, 1.5999999, 2.32)
+entity = {
+"StartDisabled": 0,
+"caption": "And that's it. You only got a simple window to see a HDRI. always having ideas that can't be made on time haha",
+"classname": "env_instructor_hint",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 2000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 5241,
+"origin": Vector3(-656, -116, 80),
+"targetname": "comment",
+"timeout": -1
+}
+
+[node name="props" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="prop_interactable_screen_293" parent="VMFNode/Entities/props" instance=ExtResource("6_k4s88")]
+transform = Transform3D(1.1924881e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.1924881e-08, -5.2125306e-16, 2.52, 2.52, 8.76)
+entity = {
+"StartDisabled": 0,
+"angles": Vector3(0, 270, 90),
+"classname": "prop_interactable_screen",
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 -1768]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 293,
+"origin": Vector3(126, -438, 126),
+"resource_path": "default_portrait"
+}
+
+[node name="Control" type="Control" parent="VMFNode/Entities/props/prop_interactable_screen_293/Root/SubViewport" index="0" instance=ExtResource("7_y3r0x")]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 548.0
+offset_right = 548.0
+offset_bottom = 1700.0
+rotation = -1.5707964
+script = ExtResource("9_y3r0x")
+metadata/_custom_type_script = "uid://b33xqak3k4u45"
+
+[node name="screen" parent="VMFNode/Entities/props/prop_interactable_screen_293/Root" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_h0pwm")
+
+[node name="logics" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="logic_auto_1082" parent="VMFNode/Entities/logics" instance=ExtResource("13_fadyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52, 1.4399999, 7.52)
+entity = {
+"classname": "logic_auto",
+"connections": {
+"OnMapSpawn": ["entrance_door,Open,,1,-1", "move_around_hint,StartHint,,1,-1", "hammer_hint,StartHint,,3,-1"]
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 13000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 1082,
+"origin": Vector3(176, -376, 72),
+"spawnflags": 0
+}
+
+[node name="funcs" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="entrance_door_1104" parent="VMFNode/Entities/funcs" groups=["entrance_door"] instance=ExtResource("14_cp4yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08, 2.56, 7.9199996)
+entity = {
+"classname": "func_door",
+"disablereceiveshadows": 0,
+"disableshadows": 0,
+"dmg": 0,
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 14000]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"forceclosed": 0,
+"health": 0,
+"id": 1104,
+"ignoredebris": 0,
+"lip": 25,
+"locked_sentence": 0,
+"loopmovesound": 0,
+"movedir": Vector3(0, 0, 0),
+"origin": Vector3(104, -396, 128),
+"renderamt": 255,
+"rendercolor": Vector3(255, 255, 255),
+"renderfx": 0,
+"rendermode": 0,
+"solid": {
+"editor": {
+"color": Vector3(220, 30, 220),
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 267,
+"side": [{
+"id": 792,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -392, 192), Vector3(144, -392, 192), Vector3(144, -400, 192)],
+"value": Plane(0, 0, 1, 192),
+"vecsum": Vector3(352, -1184, 576)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -16.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -392, 192), Vector3(144, -392, 192), Vector3(144, -400, 192), Vector3(64, -400, 192)]
+}
+}, {
+"id": 791,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -400, 64), Vector3(144, -400, 64), Vector3(144, -392, 64)],
+"value": Plane(0, 0, -1, -64),
+"vecsum": Vector3(352, -1192, 192)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -16.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -400, 64), Vector3(144, -400, 64), Vector3(144, -392, 64), Vector3(64, -392, 64)]
+}
+}, {
+"id": 790,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -392, 192), Vector3(64, -400, 192), Vector3(64, -400, 64)],
+"value": Plane(-1, 0, 0, -64),
+"vecsum": Vector3(192, -1192, 448)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 16.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -392, 192), Vector3(64, -400, 192), Vector3(64, -400, 64), Vector3(64, -392, 64)]
+}
+}, {
+"id": 789,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(144, -392, 64), Vector3(144, -400, 64), Vector3(144, -400, 192)],
+"value": Plane(1, 0, 0, 144),
+"vecsum": Vector3(432, -1192, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 16.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(144, -392, 64), Vector3(144, -400, 64), Vector3(144, -400, 192), Vector3(144, -392, 192)]
+}
+}, {
+"id": 788,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(144, -392, 192), Vector3(64, -392, 192), Vector3(64, -392, 64)],
+"value": Plane(0, 1, 0, -392),
+"vecsum": Vector3(272, -1176, 448)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(144, -392, 192), Vector3(64, -392, 192), Vector3(64, -392, 64), Vector3(144, -392, 64)]
+}
+}, {
+"id": 787,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(144, -400, 64), Vector3(64, -400, 64), Vector3(64, -400, 192)],
+"value": Plane(0, -1, 0, 400),
+"vecsum": Vector3(272, -1200, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(144, -400, 64), Vector3(64, -400, 64), Vector3(64, -400, 192), Vector3(144, -400, 192)]
+}
+}]
+},
+"spawnflags": 1024,
+"spawnpos": 0,
+"speed": 100,
+"targetname": "entrance_door",
+"unlocked_sentence": 0,
+"wait": 4
+}
+flags = 1024
+
+[node name="mesh" parent="VMFNode/Entities/funcs/entrance_door_1104/body" index="0"]
+mesh = SubResource("ArrayMesh_61uys")
+
+[node name="collision" parent="VMFNode/Entities/funcs/entrance_door_1104/body" index="1"]
+shape = SubResource("ConvexPolygonShape3D_6rt7s")
+
+[node name="entrance_door_1130" parent="VMFNode/Entities/funcs" groups=["entrance_door"] instance=ExtResource("14_cp4yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 2.56, 7.9199996)
+entity = {
+"classname": "func_door",
+"disablereceiveshadows": 0,
+"disableshadows": 0,
+"dmg": 0,
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 14500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"forceclosed": 0,
+"health": 0,
+"id": 1130,
+"ignoredebris": 0,
+"lip": 25,
+"locked_sentence": 0,
+"loopmovesound": 0,
+"movedir": Vector3(0, 180, 0),
+"origin": Vector3(24, -396, 128),
+"renderamt": 255,
+"rendercolor": Vector3(255, 255, 255),
+"renderfx": 0,
+"rendermode": 0,
+"solid": {
+"editor": {
+"color": Vector3(220, 30, 220),
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 266,
+"side": [{
+"id": 798,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(-16, -392, 192), Vector3(64, -392, 192), Vector3(64, -400, 192)],
+"value": Plane(0, 0, 1, 192),
+"vecsum": Vector3(112, -1184, 576)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -16.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(-16, -392, 192), Vector3(64, -392, 192), Vector3(64, -400, 192), Vector3(-16, -400, 192)]
+}
+}, {
+"id": 797,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(-16, -400, 64), Vector3(64, -400, 64), Vector3(64, -392, 64)],
+"value": Plane(0, 0, -1, -64),
+"vecsum": Vector3(112, -1192, 192)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": -16.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(-16, -400, 64), Vector3(64, -400, 64), Vector3(64, -392, 64), Vector3(-16, -392, 64)]
+}
+}, {
+"id": 796,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(-16, -392, 192), Vector3(-16, -400, 192), Vector3(-16, -400, 64)],
+"value": Plane(-1, 0, 0, 16),
+"vecsum": Vector3(-48, -1192, 448)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 16.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(-16, -392, 192), Vector3(-16, -400, 192), Vector3(-16, -400, 64), Vector3(-16, -392, 64)]
+}
+}, {
+"id": 795,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -392, 64), Vector3(64, -400, 64), Vector3(64, -400, 192)],
+"value": Plane(1, 0, 0, 64),
+"vecsum": Vector3(192, -1192, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 16.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -392, 64), Vector3(64, -400, 64), Vector3(64, -400, 192), Vector3(64, -392, 192)]
+}
+}, {
+"id": 794,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -392, 192), Vector3(-16, -392, 192), Vector3(-16, -392, 64)],
+"value": Plane(0, 1, 0, -392),
+"vecsum": Vector3(32, -1176, 448)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -392, 192), Vector3(-16, -392, 192), Vector3(-16, -392, 64), Vector3(64, -392, 64)]
+}
+}, {
+"id": 793,
+"lightmapscale": 16,
+"material": "DEV/DEV_MEASUREGENERIC01B",
+"plane": {
+"points": [Vector3(64, -400, 64), Vector3(-16, -400, 64), Vector3(-16, -400, 192)],
+"value": Plane(0, -1, 0, 400),
+"vecsum": Vector3(32, -1200, 320)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(64, -400, 64), Vector3(-16, -400, 64), Vector3(-16, -400, 192), Vector3(64, -400, 192)]
+}
+}]
+},
+"spawnflags": 1024,
+"spawnpos": 0,
+"speed": 100,
+"targetname": "entrance_door",
+"unlocked_sentence": 0,
+"wait": 4
+}
+flags = 1024
+
+[node name="mesh" parent="VMFNode/Entities/funcs/entrance_door_1130/body" index="0"]
+mesh = SubResource("ArrayMesh_mh061")
+
+[node name="collision" parent="VMFNode/Entities/funcs/entrance_door_1130/body" index="1"]
+shape = SubResource("ConvexPolygonShape3D_27m5q")
+
+[node name="triggers" type="Node3D" parent="VMFNode/Entities"]
+
+[node name="trigger_once_5235" parent="VMFNode/Entities/triggers" instance=ExtResource("21_bpfvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.92, 2.8799999, 3.6799998)
+entity = {
+"StartDisabled": 0,
+"classname": "trigger_once",
+"connections": {
+"OnTrigger": "comment,StartHint,,0,-1"
+},
+"editor": {
+"color": Vector3(220, 30, 220),
+"logicalpos": "[0 1500]",
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 5235,
+"origin": Vector3(-896, -184, 144),
+"solid": {
+"editor": {
+"color": Vector3(220, 30, 220),
+"visgroupautoshown": 1,
+"visgroupshown": 1
+},
+"id": 5233,
+"side": [{
+"id": 4573,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-1152, -136, 224), Vector3(-640, -136, 224), Vector3(-640, -232, 224)],
+"value": Plane(0, 0, 1, 224),
+"vecsum": Vector3(-2432, -504, 672)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(-1152, -136, 224), Vector3(-640, -136, 224), Vector3(-640, -232, 224), Vector3(-1152, -232, 224)]
+}
+}, {
+"id": 4572,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-1152, -232, 64), Vector3(-640, -232, 64), Vector3(-640, -136, 64)],
+"value": Plane(0, 0, -1, -64),
+"vecsum": Vector3(-2432, -600, 192)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": -1.0,
+"z": 0.0
+},
+"vertices_plus": {
+"v": [Vector3(-1152, -232, 64), Vector3(-640, -232, 64), Vector3(-640, -136, 64), Vector3(-1152, -136, 64)]
+}
+}, {
+"id": 4571,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-1152, -136, 224), Vector3(-1152, -232, 224), Vector3(-1152, -232, 64)],
+"value": Plane(-1, 0, 0, 1152),
+"vecsum": Vector3(-3456, -600, 512)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(-1152, -136, 224), Vector3(-1152, -232, 224), Vector3(-1152, -232, 64), Vector3(-1152, -136, 64)]
+}
+}, {
+"id": 4570,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-640, -136, 64), Vector3(-640, -232, 64), Vector3(-640, -232, 224)],
+"value": Plane(1, 0, 0, -640),
+"vecsum": Vector3(-1920, -600, 352)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 1.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(-640, -136, 64), Vector3(-640, -232, 64), Vector3(-640, -232, 224), Vector3(-640, -136, 224)]
+}
+}, {
+"id": 4569,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-640, -136, 224), Vector3(-1152, -136, 224), Vector3(-1152, -136, 64)],
+"value": Plane(0, 1, 0, -136),
+"vecsum": Vector3(-2944, -408, 512)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(-640, -136, 224), Vector3(-1152, -136, 224), Vector3(-1152, -136, 64), Vector3(-640, -136, 64)]
+}
+}, {
+"id": 4568,
+"lightmapscale": 16,
+"material": "TOOLS/TOOLSTRIGGER",
+"plane": {
+"points": [Vector3(-640, -232, 64), Vector3(-1152, -232, 64), Vector3(-1152, -232, 224)],
+"value": Plane(0, -1, 0, 232),
+"vecsum": Vector3(-2944, -696, 352)
+},
+"rotation": 0,
+"smoothing_groups": 0,
+"uaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 1.0,
+"y": 0.0,
+"z": 0.0
+},
+"vaxis": {
+"scale": 0.25,
+"shift": 0.0,
+"x": 0.0,
+"y": 0.0,
+"z": -1.0
+},
+"vertices_plus": {
+"v": [Vector3(-640, -232, 64), Vector3(-1152, -232, 64), Vector3(-1152, -232, 224), Vector3(-640, -232, 224)]
+}
+}]
+},
+"spawnflags": 0
+}
+
+[node name="collision" parent="VMFNode/Entities/triggers/trigger_once_5235/area" index="0"]
+shape = SubResource("ConvexPolygonShape3D_shgu1")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9223633, 0, 5.2328186)
+size = Vector3(23.844727, 20, 12.819275)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.922493, 0, 15.607487)
+size = Vector3(39.349792, 20, 8.433403)
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.443623, 0, 7.3081512)
+size = Vector3(15.530029, 20, 19.134247)
+
+[node name="ReflectionProbe4" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366764, 0, 6.336896)
+size = Vector3(12.698387, 20, 13.441603)
+
+[node name="ReflectionProbe5" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366764, 0, 6.336896)
+size = Vector3(12.698387, 20, 13.441603)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("18_5ehjb")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.69881, -2.118042, 10.992199)
+size = Vector3(10.787964, 4.687744, 9.085159)
+
+[editable path="VMFNode/Entities/lights/light_2546"]
+[editable path="VMFNode/Entities/lights/light_spot_2432"]
+[editable path="VMFNode/Entities/lights/light_3065"]
+[editable path="VMFNode/Entities/lights/light_spot_3078"]
+[editable path="VMFNode/Entities/lights/light_3633"]
+[editable path="VMFNode/Entities/lights/light_spot_3646"]
+[editable path="VMFNode/Entities/lights/light_3675"]
+[editable path="VMFNode/Entities/lights/light_spot_3688"]
+[editable path="VMFNode/Entities/lights/light_3706"]
+[editable path="VMFNode/Entities/lights/light_spot_3719"]
+[editable path="VMFNode/Entities/lights/light_spot_2460"]
+[editable path="VMFNode/Entities/lights/light_spot_2479"]
+[editable path="VMFNode/Entities/lights/light_spot_2491"]
+[editable path="VMFNode/Entities/lights/light_spot_2497"]
+[editable path="VMFNode/Entities/lights/light_spot_2503"]
+[editable path="VMFNode/Entities/lights/light_spot_2509"]
+[editable path="VMFNode/Entities/lights/light_spot_2515"]
+[editable path="VMFNode/Entities/lights/light_spot_2521"]
+[editable path="VMFNode/Entities/lights/light_spot_2935"]
+[editable path="VMFNode/Entities/lights/light_2968"]
+[editable path="VMFNode/Entities/lights/light_3780"]
+[editable path="VMFNode/Entities/infos/info_player_start_3"]
+[editable path="VMFNode/Entities/envs/env_sky_5"]
+[editable path="VMFNode/Entities/envs/move_around_hint_1237"]
+[editable path="VMFNode/Entities/envs/hammer_hint_1285"]
+[editable path="VMFNode/Entities/envs/comment_5241"]
+[editable path="VMFNode/Entities/props/prop_interactable_screen_293"]
+[editable path="VMFNode/Entities/logics/logic_auto_1082"]
+[editable path="VMFNode/Entities/funcs/entrance_door_1104"]
+[editable path="VMFNode/Entities/funcs/entrance_door_1130"]
+[editable path="VMFNode/Entities/triggers/trigger_once_5235"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://trb8odx2ywc"]
 
-[ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="2_nkpmc"]
+[ext_resource type="Script" uid="uid://cdjylrq00bh7h" path="res://addons/godotvmf/src/vmf_node.gd" id="2_nkpmc"]
 [ext_resource type="ArrayMesh" uid="uid://b81qdi4tuiycs" path="res://geometry/mainmenu_vmf_import.mesh" id="3_85riq"]
 [ext_resource type="Shape3D" uid="uid://kxrlxpwp0654" path="res://geometry/mainmenu_vmf_collision_surface_prop_concrete.res" id="4_wf3n4"]
 [ext_resource type="PackedScene" uid="uid://crg6fm6bav7bl" path="res://models/editor/playerstart.mdl" id="5_h73c4"]

@@ -1,19 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://jbca5de6g1wr"]
 
-[ext_resource type="Texture2D" uid="uid://dx5spw771h7kr" path="res://materials/world_sky.exr" id="1_6aawq"]
+[ext_resource type="Texture2D" uid="uid://bwobdvdu2icca" path="res://materials/NightSkyHDRI008_2K_HDR.exr" id="1_6aawq"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpp7l"]
-sky_cover = ExtResource("1_6aawq")
-ground_bottom_color = Color(0.46982753, 0.54406667, 0.6431335, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6aawq"]
+panorama = ExtResource("1_6aawq")
 
 [sub_resource type="Sky" id="Sky_f2f6y"]
-sky_material = SubResource("ProceduralSkyMaterial_hpp7l")
+sky_material = SubResource("PanoramaSkyMaterial_6aawq")
 
 [sub_resource type="Environment" id="Environment_i36ml"]
 background_mode = 2
 sky = SubResource("Sky_f2f6y")
-sky_rotation = Vector3(0, 2.0943952, 0)
-ambient_light_color = Color(0.37637204, 0.19836909, 0.10238714, 1)
 ssao_enabled = true
 ssao_radius = 2.0
 ssao_light_affect = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cggqlwb1qdsem"]
+[gd_scene load_steps=16 format=3 uid="uid://cggqlwb1qdsem"]
 
 [ext_resource type="Script" uid="uid://dmgqtn6kigcqi" path="res://scripts/player.gd" id="1_u63mc"]
 [ext_resource type="Texture2D" uid="uid://ck4vfksub38gf" path="res://materials/flashlight_pattern.png" id="2_bms3g"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://crl5y3f7qfi0p" path="res://scripts/fps_label.gd" id="5_ejohg"]
 [ext_resource type="Script" uid="uid://cy3mht08veghx" path="res://scripts/player_info_caption.gd" id="5_qbdof"]
 [ext_resource type="Texture2D" uid="uid://cclekf6ove05e" path="res://materials/caption_info_icon.png" id="6_2wrp4"]
+[ext_resource type="PackedScene" uid="uid://b4pfsar60i5br" path="res://nodes/caption_label.tscn" id="7_4n5g4"]
 [ext_resource type="Shader" uid="uid://dlf30ffrp7ve1" path="res://shaders/curved_ui.gdshader" id="7_46y3y"]
+[ext_resource type="PackedScene" uid="uid://c5x8ft3bmpfg" path="res://nodes/caption_key_name.tscn" id="7_hg0js"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bms3g"]
 radius = 0.32
@@ -32,20 +34,6 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbdof"]
-content_margin_left = 3.0
-content_margin_right = 3.0
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "collision", "camera", "ray_stair_below", "ray_stair_front", "hand_point", "flash_spot_light", "ui_crosshair")]
 script = ExtResource("1_u63mc")
 head = NodePath("Head")
@@ -56,7 +44,6 @@ ray_stair_front = NodePath("StarsFront")
 hand_point = NodePath("Head/Camera3D/HandPoint")
 flash_spot_light = NodePath("Flashlight")
 ui_crosshair = NodePath("CanvasLayer/Control/crosshair")
-jump_height = 0.7
 max_head_rotation = 80.0
 metadata/_edit_horizontal_guides_ = [468.0]
 
@@ -129,7 +116,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InfoCaption" type="PanelContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control" node_paths=PackedStringArray("label", "with_key_name_container", "key_name_label", "key_label1", "key_label2")]
+[node name="InfoCaption" type="PanelContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control" node_paths=PackedStringArray("label", "with_key_name_container", "key_label2")]
 clip_contents = true
 custom_minimum_size = Vector2(128, 56)
 layout_mode = 1
@@ -149,8 +136,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2wrp4")
 script = ExtResource("5_qbdof")
 label = NodePath("HBoxContainer/Label")
 with_key_name_container = NodePath("HBoxContainer/WithKeyName")
-key_name_label = NodePath("HBoxContainer/WithKeyName/KeyName")
-key_label1 = NodePath("HBoxContainer/WithKeyName/LabelPart1")
 key_label2 = NodePath("HBoxContainer/WithKeyName/LabelPart2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption"]
@@ -200,25 +185,19 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LabelPart1" type="RichTextLabel" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName"]
+[node name="LabelPart1" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName" instance=ExtResource("7_4n5g4")]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Press"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-vertical_alignment = 1
 
-[node name="KeyName" type="Label" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName"]
+visible = false
 layout_mode = 2
-theme_override_constants/outline_size = 5
-theme_override_styles/normal = SubResource("StyleBoxFlat_qbdof")
-text = "Space"
+
+[node name="KeyName" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName/HBoxContainer" instance=ExtResource("7_hg0js")]
+layout_mode = 2
 
 [node name="LabelPart2" type="RichTextLabel" parent="CanvasLayer/SubViewportContainer/SubViewport/Control/InfoCaption/HBoxContainer/WithKeyName"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 5
@@ -258,6 +237,7 @@ anchor_right = 1.0
 offset_left = -68.0
 offset_bottom = 29.0
 grow_horizontal = 0
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "??? FPS"
 script = ExtResource("5_ejohg")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://bcuni4uro57nx"
+path="res://.godot/imported/MetalPlates003.vmt-356297ec48b08948f7789250f2ca8b29.vmt.res"
+
+[deps]
+
+source_file="res://materials/ambientcg/MetalPlates003.vmt"
+dest_files=["res://.godot/imported/MetalPlates003.vmt-356297ec48b08948f7789250f2ca8b29.vmt.res"]
+
+[params]
+

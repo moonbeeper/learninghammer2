@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b4pfsar60i5br"]
+
+[node name="LabelPart1" type="RichTextLabel"]
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Press"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1

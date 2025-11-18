@@ -28,7 +28,6 @@ var default_resource: InteractableScreenResource = preload("res://resources/scre
 
 ## The path to the screen resource without the extension. If not found, it will be using the default one
 ## @exposed
-
 var resource_path: String = "default":
 	get: return entity.get("resource_path")
 
@@ -37,7 +36,7 @@ func _entity_setup(_e: VMFEntity) -> void:
 	var instance_ui = resource.scene.instantiate()
 	
 	if resource.is_portrait:
-		screen_root.set_portrait()
+		screen_root.is_portrait = true
 		# I was thinking of doing this on runtime but it wouldn't show up correctly in editor
 		instance_ui.rotation_degrees = -90
 		instance_ui.position = Vector2(0, 548)
@@ -50,7 +49,7 @@ func get_resource(resource_name: String) -> InteractableScreenResource:
 	var resource = load(path)
 	if resource is InteractableScreenResource:
 		return resource
-	print("Interactable screen resource wasn't found, using default one")
+	print("Requested interactable screen resource wasn't found, using default one")
 	return default_resource
 	
 # must be "string" or else the generated fdg will have an incorrect type

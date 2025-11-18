@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://baf72fvqyooue"
+path="res://.godot/imported/Metal_Plate_019_basecolor.vtf-0e3c10492a9d572b0868b08f9017f79c.vtf.res"
+
+[deps]
+
+source_file="res://materials/3dassets/Metal_Plate_019_basecolor.vtf"
+dest_files=["res://.godot/imported/Metal_Plate_019_basecolor.vtf-0e3c10492a9d572b0868b08f9017f79c.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

@@ -13,7 +13,6 @@ func _ready() -> void:
 	
 	# If we add the cursor directly to the node, we might not be able to see it thanks to the zindex of stuff.
 	var canvas = CanvasLayer.new()
-	
 	cursor = TextureRect.new()
 	cursor.texture = cursor_sprite.duplicate()
 	cursor.expand_mode = TextureRect.EXPAND_FIT_WIDTH

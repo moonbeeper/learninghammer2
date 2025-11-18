@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh818xui81xv5"]
 
-[ext_resource type="Script" uid="uid://5d2rodawi73o" path="res://addons/godotvmf/src/vmf_runtime_controller.gd" id="1_s5ltg"]
+[ext_resource type="Script" uid="uid://bq0dwd22xraid" path="res://addons/godotvmf/src/vmf_runtime_controller.gd" id="1_s5ltg"]
 
 [node name="Hammer" type="Node3D"]
 script = ExtResource("1_s5ltg")

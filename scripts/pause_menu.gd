@@ -5,6 +5,8 @@ extends Control
 @export var reload_map: Button
 @export var exit_to_desktop: Button
 
+func _ready() -> void:
+	visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

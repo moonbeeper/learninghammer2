@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://datimvjq0ckjt"
+path="res://.godot/imported/metalplate019.vmt-509b068ba7aa5d6139096cb1c04faf7c.vmt.res"
+
+[deps]
+
+source_file="res://materials/3dassets/metalplate019.vmt"
+dest_files=["res://.godot/imported/metalplate019.vmt-509b068ba7aa5d6139096cb1c04faf7c.vmt.res"]
+
+[params]
+

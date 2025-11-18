@@ -1,14 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://c3jyrry46a4pt"]
 
 [ext_resource type="PackedScene" uid="uid://dnx8n2hcqae5m" path="res://nodes/pause_menu.tscn" id="1_7yos8"]
-[ext_resource type="Script" uid="uid://drlgsmje7of8m" path="res://addons/godotvmf/src/vmf_node.gd" id="1_j5jx5"]
+[ext_resource type="Script" uid="uid://cdjylrq00bh7h" path="res://addons/godotvmf/src/vmf_node.gd" id="1_j5jx5"]
 [ext_resource type="ArrayMesh" uid="uid://b0vfv04pxxwd" path="res://geometry/test_vmf_import.mesh" id="2_lpvoh"]
 [ext_resource type="Shape3D" uid="uid://c1cjicgitir8u" path="res://geometry/test_vmf_collision_surface_prop_concrete.res" id="3_at5dv"]
 [ext_resource type="PackedScene" uid="uid://ddj2hyqaftihr" path="res://entities/info_player_start.tscn" id="4_jcd4p"]
 [ext_resource type="PackedScene" uid="uid://bdg014m5mhqjt" path="res://addons/godotvmf/entities/light.tscn" id="5_uacia"]
 [ext_resource type="PackedScene" uid="uid://dlim7ssqk6jwg" path="res://entities/prop_interactable_screen.tscn" id="6_ghpyy"]
 [ext_resource type="PackedScene" uid="uid://brvkc5slp4sgv" path="res://nodes/screens/empty.tscn" id="7_44saj"]
-[ext_resource type="Script" uid="uid://b33xqak3k4u45" path="res://scripts/screen/base_ui.gd" id="8_7mbro"]
 [ext_resource type="Shader" uid="uid://cna84oy3hvq4" path="res://shaders/prop_interactable_screen.gdshader" id="9_ff6ho"]
 [ext_resource type="Texture2D" uid="uid://cpf14uk5yps7f" path="res://materials/models/screen/screen_Screen_AORoughMetal.png" id="10_7yos8"]
 [ext_resource type="Texture2D" uid="uid://dx34o56r1dg7m" path="res://materials/models/screen/screen_Screen_Normal.png" id="11_5jxlq"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dw3wc4ii6tuan" path="res://entities/trigger_multiple.tscn" id="13_7mbro"]
 [ext_resource type="PackedScene" uid="uid://dw3so510qvjsq" path="res://entities/env_instructor_hint.tscn" id="13_44saj"]
 [ext_resource type="PackedScene" uid="uid://bl3yd2jo07xrf" path="res://entities/env_sky.tscn" id="15_ff6ho"]
+[ext_resource type="LightmapGIData" uid="uid://bhqoywcglxw5e" path="res://scenes/test.lmbake" id="17_5jxlq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7yos8"]
 viewport_path = NodePath("VMFNode/Entities/props/sad_15/Root/SubViewport")
@@ -41,10 +41,10 @@ shader_parameter/texture_ambient_occlusion = ExtResource("10_7yos8")
 shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/ao_light_affect = 0.0
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xrtyr"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_daiq8"]
 points = PackedVector3Array(-1.2799997, -0.64, -1.28, -1.2799997, 0.64, -1.28, 1.2800002, -0.64, -1.28, -1.2799997, -0.64, 1.28, -1.2799997, 0.64, 1.28, 1.2800002, 0.64, -1.28, 1.2800002, -0.64, 1.28, 1.2800002, 0.64, 1.28)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_daiq8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c6rvn"]
 points = PackedVector3Array(-1.2799196, -0.64, -1.2799997, -1.2799196, 0.64, -1.2799997, 1.2800803, -0.64, -1.2799997, -1.2799196, -0.64, 1.2800002, -1.2799196, 0.64, 1.2800002, 1.2800803, 0.64, -1.2799997, 1.2800803, -0.64, 1.2800002, 1.2800803, 0.64, 1.2800002)
 
 [node name="Test" type="Node3D"]
@@ -58,6 +58,7 @@ visible = false
 [node name="VMFNode" type="Node3D" parent="."]
 script = ExtResource("1_j5jx5")
 vmf = "res://mapsrc/test.vmf"
+metadata/_custom_type_script = "uid://cdjylrq00bh7h"
 
 [node name="Geometry" type="MeshInstance3D" parent="VMFNode"]
 mesh = ExtResource("2_lpvoh")
@@ -144,15 +145,7 @@ entity = {
 "targetname": "sad"
 }
 
-[node name="Control" type="Control" parent="VMFNode/Entities/props/sad_15/Root/SubViewport" index="0" instance=ExtResource("7_44saj")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("8_7mbro")
-metadata/_custom_type_script = "uid://b33xqak3k4u45"
+[node name="Control" parent="VMFNode/Entities/props/sad_15/Root/SubViewport" index="0" instance=ExtResource("7_44saj")]
 
 [node name="screen" parent="VMFNode/Entities/props/sad_15/Root" index="1"]
 surface_material_override/0 = SubResource("ShaderMaterial_5jxlq")
@@ -374,7 +367,7 @@ entity = {
 flags = 1
 
 [node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_33/area" index="0"]
-shape = SubResource("ConvexPolygonShape3D_xrtyr")
+shape = SubResource("ConvexPolygonShape3D_daiq8")
 
 [node name="trigger_multiple_90" parent="VMFNode/Entities/triggers" instance=ExtResource("13_7mbro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9771996, 1.92, 4.7999997)
@@ -575,7 +568,7 @@ entity = {
 flags = 1
 
 [node name="collision" parent="VMFNode/Entities/triggers/trigger_multiple_90/area" index="0"]
-shape = SubResource("ConvexPolygonShape3D_daiq8")
+shape = SubResource("ConvexPolygonShape3D_c6rvn")
 
 [node name="envs" type="Node3D" parent="VMFNode/Entities"]
 
@@ -648,6 +641,13 @@ entity = {
 "targetname": "hello_world_caption3",
 "timeout": 5
 }
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+light_data = ExtResource("17_5jxlq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [editable path="VMFNode/Entities/infos/info_player_start_7"]
 [editable path="VMFNode/Entities/lights/light_9"]

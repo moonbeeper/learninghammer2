@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://dh8c8xce11hto"
+path="res://.godot/imported/CorrugatedSteel008A.vmt-b7d1fbda2af6c2782d4b5f17498a2b7e.vmt.res"
+
+[deps]
+
+source_file="res://materials/ambientcg/CorrugatedSteel008A.vmt"
+dest_files=["res://.godot/imported/CorrugatedSteel008A.vmt-b7d1fbda2af6c2782d4b5f17498a2b7e.vmt.res"]
+
+[params]
+

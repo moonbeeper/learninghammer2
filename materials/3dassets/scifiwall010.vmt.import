@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://cokhda6wv1g7i"
+path="res://.godot/imported/scifiwall010.vmt-0cbc20bae7006e813a3401928c1cdafd.vmt.res"
+
+[deps]
+
+source_file="res://materials/3dassets/scifiwall010.vmt"
+dest_files=["res://.godot/imported/scifiwall010.vmt-0cbc20bae7006e813a3401928c1cdafd.vmt.res"]
+
+[params]
+

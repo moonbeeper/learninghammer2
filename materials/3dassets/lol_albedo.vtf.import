@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://44tji3cbekku"
+path="res://.godot/imported/lol_albedo.vtf-e86b9aa23fbbb602ce2a84e36ea6398f.vtf.res"
+
+[deps]
+
+source_file="res://materials/3dassets/lol_albedo.vtf"
+dest_files=["res://.godot/imported/lol_albedo.vtf-e86b9aa23fbbb602ce2a84e36ea6398f.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

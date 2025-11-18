@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://djk0mg27rx06i"
+path="res://.godot/imported/MetalPlates007_2K-JPG_Color.vtf-a703dcb001d3701e518b9c0b2215f87b.vtf.res"
+
+[deps]
+
+source_file="res://materials/ambientcg/MetalPlates007_2K-JPG_Color.vtf"
+dest_files=["res://.godot/imported/MetalPlates007_2K-JPG_Color.vtf-a703dcb001d3701e518b9c0b2215f87b.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

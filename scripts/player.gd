@@ -98,7 +98,6 @@ func input_interact(_event: InputEvent) -> void:
 		var result = get_world_3d().direct_space_state.intersect_ray(query)
 
 		if result and result.collider:
-			#print(result)
 			var body = result.collider.get_parent()
 			if body.has_method("_interact_and_pickup"):
 				body._interact(self)
@@ -106,8 +105,10 @@ func input_interact(_event: InputEvent) -> void:
 				print("body has _interact method, exiting method")
 				body._interact(self)
 				return
-
-			pickup_processor.pickup_item(result.collider)
+			# gets mad if interact to a csg something with collision.
+			# even though the method is already checking that its a rigidbody3d.
+			if result is RigidBody3D:
+				pickup_processor.pickup_item(result.collider)
 
 func input_flashlight(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
@@ -152,7 +153,6 @@ func input_screen_click(event: InputEvent) -> void:
 		
 func _process(delta: float) -> void:
 	process_flashlight_movement(delta)
-	#process_ui_fps(delta)
 	process_interaction_screen_cursor(delta)
 	
 func _physics_process(delta: float) -> void:
@@ -211,9 +211,6 @@ func process_noclip_movement(delta: float) -> void:
 	velocity *= .5
 	
 	move_and_slide()
-
-#func process_ui_fps(_delta: float) -> void:
-	#ui_fps_label.text = "%s FPS" % str(Engine.get_frames_per_second())
 
 func process_interaction_screen_cursor(_delta: float) -> void:
 	var ray_start = camera.global_transform.origin

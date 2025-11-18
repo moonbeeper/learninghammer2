@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://sdbeam0qt6vc"
+path="res://.godot/imported/Sci-fi_Wall_010_basecolor.vtf-be1545de51a4837942dfd032a6c350e2.vtf.res"
+
+[deps]
+
+source_file="res://materials/3dassets/Sci-fi_Wall_010_basecolor.vtf"
+dest_files=["res://.godot/imported/Sci-fi_Wall_010_basecolor.vtf-be1545de51a4837942dfd032a6c350e2.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

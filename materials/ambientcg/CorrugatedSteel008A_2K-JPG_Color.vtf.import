@@ -1,0 +1,15 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://brrlpbwajf28s"
+path="res://.godot/imported/CorrugatedSteel008A_2K-JPG_Color.vtf-e58ada1fc118bc39e35512ae0856697b.vtf.res"
+
+[deps]
+
+source_file="res://materials/ambientcg/CorrugatedSteel008A_2K-JPG_Color.vtf"
+dest_files=["res://.godot/imported/CorrugatedSteel008A_2K-JPG_Color.vtf-e58ada1fc118bc39e35512ae0856697b.vtf.res"]
+
+[params]
+
+srgb_conversion_method=1

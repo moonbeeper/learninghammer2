@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://csh8bsrh60wkr"
+path="res://.godot/imported/lol.vmt-076bd1033851786f88bf05b2e3facaf1.vmt.res"
+
+[deps]
+
+source_file="res://materials/3dassets/lol.vmt"
+dest_files=["res://.godot/imported/lol.vmt-076bd1033851786f88bf05b2e3facaf1.vmt.res"]
+
+[params]
+

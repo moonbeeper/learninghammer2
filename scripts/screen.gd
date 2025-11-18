@@ -5,19 +5,21 @@ class_name InteractableScreen
 signal mouse_moved(pos: Vector2)
 signal called_action(action_name: String)
 
+@onready var parent: prop_interactable_screen = get_parent()
+
 @export var viewport: SubViewport
 @export var screen_mesh: MeshInstance3D
 @export var area: Area3D
 @export var screen_area_mesh: MeshInstance3D
 
+var screen_material = preload("res://materials/models/screen/screen_screen_shader.tres")
+var highlight_material = preload("res://materials/object_highlight.tres")
 # always assume the ui design size is 1152x548.
 var ui_design_size: Vector2 = Vector2(1152, 548)
 var is_portrait: bool = false # used to rotate the cursor.
-
-var screen_material = preload("res://materials/models/screen/screen_screen_shader.tres")
 var last_mouse_pos: Vector2 = Vector2.ZERO
 var is_mouse_over: bool = false
-@onready var parent: prop_interactable_screen = get_parent()
+
 
 func _ready() -> void:
 	parent._InternalCallAction.connect(func(e): called_action.emit(e))
@@ -40,6 +42,7 @@ func world_to_viewport_pos(world_hit_pos: Vector3) -> Vector2:
 	return pos2d
 
 func emit_cursor_position(world_hit_pos: Vector3):
+	screen_mesh.material_overlay = highlight_material.duplicate()
 	var pos2d = world_to_viewport_pos(world_hit_pos)
 	
 	var motion_event = InputEventMouseMotion.new()
@@ -84,3 +87,6 @@ func trigger_action(id: int) -> void:
 
 # can't do this, the signal has to be handled by the UI
 #func _on_call_action(action_name) -> void: pass
+
+func _on_hovered() -> void:
+	pass

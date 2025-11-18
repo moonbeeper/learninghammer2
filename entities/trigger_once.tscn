@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://urtyo8pv8tfk"]
 
-[ext_resource type="Script" uid="uid://brh4g1eqnhj0q" path="res://entities/trigger_once.gd" id="1_ufyfw"]
+[ext_resource type="Script" uid="uid://brh4g1eqnhj0q" path="res://entities/trigger_once.gd" id="1_hjhu4"]
 
-[node name="trigger_once" type="Node3D"]
-script = ExtResource("1_ufyfw")
+[node name="trigger_hurt" type="Node3D"]
+script = ExtResource("1_hjhu4")
 
 [node name="area" type="Area3D" parent="."]
 

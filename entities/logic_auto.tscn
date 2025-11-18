@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ylhe3k3dun2"]
+
+[ext_resource type="Script" uid="uid://b7cnavun6s02d" path="res://entities/logic_auto.gd" id="1_hannl"]
+
+[node name="logic_auto" type="Node3D"]
+script = ExtResource("1_hannl")

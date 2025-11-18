@@ -39,6 +39,7 @@
 
 	]
 
+	resource_path(string) : "Resource Path" : "default" : "The path to the screen resource without the extension. If not found, it will be using the default one"
 	StartDisabled(choices) : "Start Disabled" : 0 = [		"0" : "No"		"1" : "Yes"	]
 
 	output OnAction1(void) : ""

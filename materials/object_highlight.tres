@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c6gvhmp41rvtq"]
+
+[ext_resource type="Shader" uid="uid://dgv6f6r17i55d" path="res://shaders/highlight.gdshader" id="1_e0g57"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_e0g57")
+shader_parameter/color = Color(0.8146668, 0, 0.94, 1)
+shader_parameter/glow = 4.0
+shader_parameter/thickness = 0.05
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(640, 360)
