@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "8870"
-	"mapversion" "107"
+	"mapversion" "108"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -89,7 +89,7 @@ bgimages_plus
 world
 {
 	"id" "1"
-	"mapversion" "107"
+	"mapversion" "108"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -28591,7 +28591,7 @@ entity
 	{
 		"OnMapSpawn" "entrance_door,Open,,1,-1"
 		"OnMapSpawn" "move_around_hint,StartHint,,1,-1"
-		"OnMapSpawn" "hammer_hint,StartHint,,10,-1"
+		"OnMapSpawn" "hammer_hint,StartHint,,3,-1"
 	}
 	"origin" "176 -376 72"
 	editor
@@ -28912,7 +28912,7 @@ entity
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "move_around_hint"
-	"timeout" "6"
+	"timeout" "3"
 	connections
 	{
 		"OnMapSpawn" "entrance_door,Open,,1,-1"
@@ -28934,7 +28934,7 @@ entity
 	"spawnflags" "0"
 	"StartDisabled" "0"
 	"targetname" "hammer_hint"
-	"timeout" "10"
+	"timeout" "7"
 	connections
 	{
 		"OnMapSpawn" "entrance_door,Open,,1,-1"
